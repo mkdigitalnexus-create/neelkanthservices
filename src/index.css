@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* =========================================================
+   NEELKHANTH TRANSPORT SERVICES — DESIGN SYSTEM
+   Surface: consignment-note paper. Ink blocks: navy press run.
+   ========================================================= */
+
+@theme {
+  --color-paper: #fbf8f3;
+  --color-kraft: #f2ede4;
+  --color-kraft-deep: #e9e1d3;
+  --color-rule: #e3dccf;
+  --color-ink: #0e2439;
+  --color-ink-soft: #1b3a55;
+  --color-brand: #1769aa;
+  --color-brand-dark: #12547f;
+  --color-teal: #087f8c;
+  --color-amber: #e08a1e;
+  --color-amber-dark: #b96f12;
+  --color-body: #22303c;
+  --color-muted: #5c6b78;
+  --color-onink: #dfe8ef;
+
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --radius-card: 4px;
+}
+
+:root {
+  --brand-navy: #0e2439;
+  --brand-blue: #1769aa;
+  --brand-teal: #087f8c;
+  --brand-amber: #e08a1e;
+  --surface-paper: #fbf8f3;
+  --surface-kraft: #f2ede4;
+  --text-main: #22303c;
+  --text-secondary: #5c6b78;
+  --border-rule: #e3dccf;
+  --container-max: 1240px;
+  --section-gap: clamp(4.5rem, 8vw, 8rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--surface-paper);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--brand-amber);
+  color: #20160a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Document utilities ----------
+   Declared in the components layer so Tailwind utilities can still override
+   individual properties (font-size, tracking, case) on the same element. */
+
+@layer components {
+
+.doc-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .doc-container {
+    padding-inline: 2rem;
+  }
+}
+
+.label-micro {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.display-tight {
+  letter-spacing: -0.028em;
+  line-height: 0.95;
+}
+
+/* Ruled "waybill" field box */
+.field-rule {
+  background-color: #fffdf9;
+  border: 1px solid var(--border-rule);
+  border-bottom-width: 2px;
+  border-radius: 2px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.field-rule:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.16);
+}
+
+.field-error {
+  border-color: #c0392b !important;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
+}
+
+/* Diagonal caution chevrons painted on truck tailgates */
+.chevron-band {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--brand-amber) 0 10px,
+    transparent 10px 20px
+  );
+}
+
+.hatch-soft {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(14, 36, 57, 0.05) 0 1px,
+    transparent 1px 7px
+  );
+}
+
+.paper-grain {
+  background-image: radial-gradient(rgba(14, 36, 57, 0.045) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Thin rule used between document rows */
+.rule-t {
+  border-top: 1px solid var(--border-rule);
+}
+.rule-b {
+  border-bottom: 1px solid var(--border-rule);
+}
+
+/* ---------- Carousel / ken burns ---------- */
+@keyframes kb-slow {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.kb {
+  animation: kb-slow 16s ease-out both;
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.draw-x {
+  transform-origin: left center;
+  animation: draw-x 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Swiper overrides so it matches the document look */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  overflow: hidden;
+}
+
+}
+
+/* Hide native number input spinners for cleaner form fields */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

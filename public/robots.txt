@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Demo build — replace with the confirmed production domain before launch.
+Sitemap: https://demo.neelkanthtransportservices.example/sitemap.xml
