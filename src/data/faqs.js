@@ -6,6 +6,7 @@
 
 export const faqCategories = [
   { id: "quotation", label: "Quotation & Pricing" },
+  { id: "freight", label: "Commercial Freight & Transport" },
   { id: "household", label: "Household Shifting" },
   { id: "packing", label: "Packing & Materials" },
   { id: "transport", label: "Transportation & Tracking" },
@@ -114,11 +115,32 @@ export const faqs = [
       "We recommend booking 3 to 7 days in advance for local shifting, and 1 to 2 weeks ahead for intercity relocations, especially near month-ends, festive seasons, or weekends when moving schedules fill quickly. However, we also maintain standby emergency capacity for same-day or next-day urgent relocations.",
   },
   {
-    id: "after-move-support",
-    category: "household",
-    question: "Do you help with reassembling furniture and debris removal after delivery?",
+    id: "ftl-pricing-metric",
+    category: "freight",
+    question: "How is Full Truck Load (FTL) commercial freight calculated?",
     answer:
-      "Yes! Our team unloads every carton into its designated room (master bedroom, kitchen, living room, etc.), reassembles all dismantled beds, dining tables, and wardrobes, and assists with primary furniture placement. Once unpacking is finished, our crew collects and disposes of all empty packing cartons and scrap materials so your new home is immediately liveable.",
+      "FTL pricing depends on the container size required (14ft, 19ft, 24ft, 32ft MXL), total tonnage, distance corridor, toll charges, and whether dedicated return-journey capacity is needed. We offer per-trip fixed container contracts as well as monthly dedicated fleet arrangements with itemized GST invoices.",
+  },
+  {
+    id: "eway-bill-compliance",
+    category: "freight",
+    question: "Do you support GST e-Way bills and commercial road permit compliance?",
+    answer:
+      "Yes. Our dispatch office validates all e-Way bill part-A and part-B details, updating vehicle numbers and Transporter ID before highway dispatch. We ensure complete compliance with state tax checkpoints and commercial entry norms across North India and nationwide routes.",
+  },
+  {
+    id: "machinery-safety",
+    category: "freight",
+    question: "How do you handle heavy industrial machinery and factory plant relocations?",
+    answer:
+      "Industrial machinery transport is executed using heavy-duty flatbeds or hydraulic low-bed trailers. We coordinate on-site rigging, crane loading, Grade-80 certified lashing chains, anti-skid rubber mats, and overhead bridge height clearances to guarantee safe industrial delivery.",
+  },
+  {
+    id: "ptl-delivery-timeline",
+    category: "freight",
+    question: "What are the line-haul schedules and delivery times for Part Truck Load (PTL)?",
+    answer:
+      "Our PTL line-haul routes operate daily across the Ludhiana – Chandigarh – Delhi NCR industrial triangle, with delivery windows ranging from 24 to 48 hours. Consignments are barcoded upon warehouse receipt and tracked across all transit checkpoints.",
   },
 ];
 

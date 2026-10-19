@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
+  Boxes,
   Building2,
   Car,
+  Factory,
   Home,
   MapPin,
   Package,
   Route,
+  ShieldCheck,
   Truck,
   Warehouse,
 } from "lucide-react";
@@ -20,6 +23,9 @@ const ICONS = {
   "map-pin": MapPin,
   route: Route,
   warehouse: Warehouse,
+  boxes: Boxes,
+  factory: Factory,
+  fleet: ShieldCheck,
 };
 
 /**

@@ -8,13 +8,17 @@ import { validate, todayISO } from "../../utils/validation";
 import { allCityNames } from "../../data/locations";
 
 const PROPERTY_TYPES = [
-  "1 BHK apartment",
-  "2 BHK apartment",
-  "3 BHK apartment / house",
-  "Independent house / villa",
-  "Office / commercial space",
-  "Storage unit / warehouse",
-  "Other / not sure yet",
+  "Household Shifting (1-2 BHK)",
+  "Household Shifting (3+ BHK / Villa)",
+  "Commercial / Office Relocation",
+  "Full Truck Load (FTL) Freight",
+  "Part Truck Load (PTL) / Cargo",
+  "Industrial Machinery Transport",
+  "Car / Two-Wheeler Transportation",
+  "Local Same-Day Shifting",
+  "Storage / Safe Warehousing",
+  "Commercial Fleet / Contract Logistics",
+  "Other / Custom Requirement",
 ];
 
 const RULES = {
@@ -245,7 +249,7 @@ export default function QuickQuoteForm() {
                   />
                 </Field>
 
-                <Field id="qq-propertyType" label="Property type" required error={errors.propertyType}>
+                <Field id="qq-propertyType" label="Service / requirement" required error={errors.propertyType}>
                   <select
                     id="qq-propertyType"
                     name="propertyType"
@@ -254,7 +258,7 @@ export default function QuickQuoteForm() {
                     aria-invalid={Boolean(errors.propertyType)}
                     className={inputClass("propertyType")}
                   >
-                    <option value="">Select property type</option>
+                    <option value="">Select service / cargo type</option>
                     {PROPERTY_TYPES.map((t) => (
                       <option key={t} value={t}>
                         {t}

@@ -54,23 +54,23 @@ export default function Services() {
   return (
     <>
       <Seo
-        title="Packers and Movers Services | Neelkanth Transport Services"
-        description="Comprehensive relocation services — household shifting, office relocation, professional packing, vehicle carriers, local city shifting, and intercity freight across North India."
+        title="Commercial Transportation & Packers and Movers Services | Neelkanth Transport"
+        description="Comprehensive commercial freight and relocation services — Full Truck Load (FTL), Part Truck Load (PTL), industrial machinery logistics, household shifting, office relocation, and storage across North India."
         path="/services"
-        image="assets/services/packing.jpg"
+        image="assets/services/ftl-freight.jpg"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
         jsonLd={faqJsonLd}
       />
 
       <PageHero
         index="01"
-        label="Services"
-        title="Relocation services, organised so you only take what you need"
-        intro="Eight specialized service categories covering the full journey of a move — from packing the first carton with multi-layer materials to safe container transit and room-by-room delivery."
-        image="assets/services/packing.jpg"
-        imageAlt="Hands wrapping a wooden drawer unit in bubble wrap and stretch film beside stacked cartons"
+        label="Complete Service Catalogue"
+        title="Commercial transportation & packers and movers, under one fleet"
+        intro="Twelve specialized services covering point-to-point highway freight, industrial cargo transport, corporate office moving, and careful household shifting."
+        image="assets/services/ftl-freight.jpg"
+        imageAlt="Commercial container truck driving on a multi-lane Indian highway"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
-        objectPosition="58% 50%"
+        objectPosition="50% 50%"
       >
         <ul className="mt-6 flex flex-wrap gap-2">
           {services.map((s) => (

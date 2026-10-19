@@ -77,8 +77,7 @@ export default function Footer() {
             {siteConfig.tagline}
           </p>
           <p className="mt-5 max-w-[42ch] text-[0.885rem] leading-[1.72] text-onink/65">
-            Packers and movers for household shifting, office relocation, packing, loading, vehicle
-            transportation and intercity transport enquiries across North India.
+            Commercial transportation, Full Truck Load (FTL) freight, industrial machinery logistics, and professional packers & movers across Punjab, Haryana, Chandigarh, Delhi NCR and Pan-India.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-2.5">

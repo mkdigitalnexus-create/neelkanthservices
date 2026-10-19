@@ -85,8 +85,8 @@ export default function About() {
       <PageHero
         index="01"
         label="About the company"
-        title="A transport service built on care, precision, and 14+ years of trust"
-        intro="Neelkanth Transport Services Pvt. Ltd. is a premier packers and movers provider serving North India — specialized in household shifting, commercial relocation, vehicle carriers, and express intercity logistics."
+        title="Transportation & relocation built on care, precision, and 14+ years of trust"
+        intro="Neelkanth Transport Services Pvt. Ltd. is a premier commercial transportation and packers & movers provider serving North India — specialized in Full Truck Load (FTL) freight, industrial machinery transport, corporate relocation, and planned household shifting."
         image="assets/about/logistics-fleet.jpg"
         imageAlt="A row of goods trucks parked in a transport yard at dawn"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]}

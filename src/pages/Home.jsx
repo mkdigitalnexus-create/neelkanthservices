@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Boxes, Building2, Home as HomeIcon, Warehouse } from "lucide-react";
+import { ArrowRight, Boxes, Building2, Factory, Home as HomeIcon, Truck, Warehouse } from "lucide-react";
 import Seo from "../components/common/Seo";
 import Reveal from "../components/common/Reveal";
 import HeroCarousel from "../components/home/HeroCarousel";
 import TrustHighlights from "../components/home/TrustHighlights";
 import ServicesGrid from "../components/home/ServicesGrid";
+import FleetCapabilities from "../components/home/FleetCapabilities";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import ProcessTimeline from "../components/home/ProcessTimeline";
 import ServiceAreaPreview from "../components/home/ServiceAreaPreview";
@@ -13,46 +14,46 @@ import FAQAccordion from "../components/home/FAQAccordion";
 import FinalCTA from "../components/home/FinalCTA";
 
 const BANNER_ITEMS = [
-  { icon: HomeIcon, label: "Household" },
-  { icon: Building2, label: "Commercial" },
-  { icon: Boxes, label: "Packing" },
-  { icon: Warehouse, label: "Storage" },
+  { icon: Truck, label: "Commercial FTL" },
+  { icon: HomeIcon, label: "Household Shifting" },
+  { icon: Building2, label: "Office Relocation" },
+  { icon: Factory, label: "Industrial Machinery" },
+  { icon: Boxes, label: "Part Load (PTL)" },
+  { icon: Warehouse, label: "Safe Warehousing" },
 ];
 
-/** Featured relocation banner — wide cinematic band between process and regions. */
+/** Featured logistics & relocation banner — wide cinematic band between process and regions. */
 function RelocationBanner() {
   return (
     <section className="doc-container mt-24 md:mt-32" aria-labelledby="relocation-banner-heading">
       <Reveal>
         <div className="relative min-h-[30rem] md:min-h-[34rem] overflow-hidden rounded-[4px] border border-rule flex items-center">
           <img
-            src="assets/services/loading.jpg"
-            alt="Movers loading wrapped furniture and cartons into a transport container over a steel ramp"
+            src="assets/services/ftl-freight.jpg"
+            alt="A heavy commercial container transport truck on a national highway"
             loading="lazy"
             decoding="async"
             width="1536"
             height="1024"
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "58% 52%" }}
+            style={{ objectPosition: "50% 50%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/96 via-ink/85 to-ink/30" aria-hidden="true" />
 
           <div className="relative z-10 w-full px-7 py-12 md:px-14 md:py-16">
-            <div className="max-w-[38rem]">
+            <div className="max-w-[40rem]">
               <div className="flex items-center gap-3">
                 <span className="h-[2px] w-9 bg-amber" aria-hidden="true" />
-                <span className="label-micro text-amber">Household &amp; commercial</span>
+                <span className="label-micro text-amber">Commercial Freight &amp; Relocation</span>
               </div>
               <h2
                 id="relocation-banner-heading"
                 className="mt-5 font-display font-extrabold display-tight text-paper text-[clamp(1.75rem,4.2vw,2.75rem)]"
               >
-                Organized relocation for homes, offices and everything in between.
+                Two distinct specialties. One unified standard of care and precision.
               </h2>
               <p className="mt-5 max-w-[48ch] text-[1.015rem] leading-[1.72] text-onink/85">
-                One planning approach, applied to different kinds of moves — from a single-bedroom
-                apartment to a full commercial floor, with packing, handling and transport arranged
-                as one coordinated job.
+                Whether transporting 20 tons of industrial manufacturing cargo across national highway corridors or moving a multi-bedroom family residence with white-glove packing — Neelkanth Transport delivers total transit accountability.
               </p>
 
               <ul className="mt-7 flex flex-wrap gap-2.5">
@@ -67,13 +68,19 @@ function RelocationBanner() {
                 ))}
               </ul>
 
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/services"
                   className="inline-flex h-12 items-center gap-2 rounded-[3px] border border-amber bg-amber px-6 text-[0.955rem] font-semibold text-[#20160A] shadow-[0_2px_0_0_#B96F12] transition-colors hover:bg-[#f0a03c]"
                 >
-                  Explore Our Services
+                  Explore All Services
                   <ArrowRight className="h-[18px] w-[18px]" aria-hidden="true" />
+                </Link>
+                <Link
+                  to="/get-a-quote"
+                  className="inline-flex h-12 items-center rounded-[3px] border border-paper/35 px-6 text-[0.955rem] font-semibold text-paper transition-colors hover:bg-paper hover:text-ink"
+                >
+                  Request Freight / Moving Quote
                 </Link>
               </div>
             </div>
@@ -88,16 +95,17 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Neelkanth Transport Services — Packers & Movers, Household Shifting & Transport"
-        description="Packers and movers for household shifting, office relocation, packing and unpacking, loading and unloading, car and bike transportation and intercity transport across Punjab, Haryana, Chandigarh and Delhi NCR. Request a moving quotation."
+        title="Neelkanth Transport Services — Commercial Transportation & Packers and Movers"
+        description="IBA-Approved commercial transportation, Full Truck Load (FTL) freight, industrial machinery logistics, and professional packers & movers across Punjab, Haryana, Chandigarh, Delhi NCR and Pan-India."
         path="/"
-        image="assets/hero/hero-household.jpg"
+        image="assets/services/ftl-freight.jpg"
         breadcrumbs={[{ label: "Home", to: "/" }]}
       />
 
       <HeroCarousel />
       <TrustHighlights />
       <ServicesGrid />
+      <FleetCapabilities />
       <WhyChooseUs />
       <ProcessTimeline />
       <RelocationBanner />

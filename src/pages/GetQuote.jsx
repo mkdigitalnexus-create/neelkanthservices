@@ -20,33 +20,36 @@ import { allCityNames } from "../data/locations";
 import { services } from "../data/services";
 
 const PROPERTY_TYPES = [
-  "1 BHK apartment",
-  "2 BHK apartment",
-  "3 BHK apartment / house",
-  "Independent house / villa",
-  "Office / commercial space",
-  "Retail / commercial unit",
-  "Storage unit / warehouse",
-  "Other / not sure yet",
+  "Apartment / Flat (1-3 BHK)",
+  "Independent House / Villa",
+  "Corporate Office / Commercial Space",
+  "Manufacturing Plant / Factory",
+  "Commercial Warehouse / Distribution Hub",
+  "Retail Store / Commercial Unit",
+  "Industrial Yard / Project Site",
+  "Other / Custom Facility",
 ];
 
 const MOVING_TYPES = [
-  "Local shifting (within the city)",
-  "Intercity relocation (between cities)",
-  "Office / commercial relocation",
-  "Vehicle transportation only",
-  "Storage requirement",
-  "Not sure yet — please advise",
+  "Household Relocation (Local or Intercity)",
+  "Full Truck Load (FTL) Commercial Freight",
+  "Part Truck Load (PTL) / Cargo Consignment",
+  "Office / Corporate Relocation",
+  "Industrial Machinery & Heavy Equipment",
+  "Car / Two-Wheeler Transportation",
+  "Commercial Fleet / Contract Logistics",
+  "Storage / Safe Warehousing",
 ];
 
 const VOLUME_OPTIONS = [
-  "Few items / less than a room",
-  "1 BHK worth of items",
-  "2 BHK worth of items",
-  "3 BHK or larger household",
-  "Partial office / commercial load",
-  "Full office / commercial load",
-  "Not sure — will share a list later",
+  "Few items / Less than a room",
+  "1-2 BHK Household load",
+  "3+ BHK / Large Villa load",
+  "Partial Truckload (PTL) / Up to 5 Tons",
+  "Full Truckload (FTL) / 10-20 Tons",
+  "Heavy Machinery / Oversized Equipment",
+  "Corporate Office (10-50+ workstations)",
+  "Custom / Will share list during discussion",
 ];
 
 const STEPS = [
@@ -242,20 +245,20 @@ export default function GetQuote() {
   return (
     <>
       <Seo
-        title="Get a Free Moving Quote | Neelkanth Transport Services"
-        description="Request a moving quotation for household shifting, office relocation, packing, vehicle transportation or intercity moves. Share your route, date and item volume in a simple multi-step form."
+        title="Get a Free Quote | Commercial Transport & Moving | Neelkanth Transport"
+        description="Request a quotation for commercial freight, Full Truck Load (FTL), Part Truck Load (PTL), household shifting, office relocation, or machinery transport. Fast written estimates."
         path="/get-a-quote"
-        image="assets/hero/hero-household.jpg"
+        image="assets/services/ftl-freight.jpg"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Get a Quote" }]}
       />
 
       <PageHero
         index="01"
         label="Request a quotation"
-        title="Get a free moving quote"
-        intro="Three simple steps: your route details, contact information, and inventory scope. Receive a transparent, itemized moving quotation with no hidden costs."
-        image="assets/hero/hero-household.jpg"
-        imageAlt="Movers carrying a blanket-wrapped wardrobe up a loading ramp into a transport truck"
+        title="Get a free moving or freight quote"
+        intro="Three simple steps: your origin/destination, contact information, and cargo scope. Receive a transparent, itemized quotation with zero hidden fees."
+        image="assets/services/ftl-freight.jpg"
+        imageAlt="Commercial container transport truck on a national highway"
         breadcrumbs={[{ label: "Get a Quote" }]}
       />
 

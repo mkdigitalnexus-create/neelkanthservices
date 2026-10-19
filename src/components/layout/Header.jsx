@@ -125,37 +125,95 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
                         transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute right-0 top-full z-50 w-[34rem] max-w-[calc(100vw-2rem)] pt-3"
+                        className="absolute left-1/2 top-full z-50 w-[42rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3"
                       >
-                        <div className="rounded-[4px] border border-rule bg-white p-2 shadow-[0_28px_70px_-28px_rgba(14,36,57,0.55)]">
-                          <div className="grid grid-cols-2 gap-1">
-                            {services.map((s) => (
-                              <Link
-                                key={s.slug}
-                                to={`/services/${s.slug}`}
-                                className="group flex items-start gap-3 rounded-[3px] px-3 py-2.5 transition-colors hover:bg-kraft"
-                              >
-                                <span className="tabular label-micro mt-[3px] text-[0.62rem] text-amber-dark">
-                                  {s.index}
+                        <div className="relative rounded-[4px] border border-rule bg-white p-4 shadow-[0_28px_70px_-28px_rgba(14,36,57,0.55)]">
+                          {/* Centered pointer arrow connecting to Services nav link */}
+                          <div
+                            className="absolute -top-[5px] left-1/2 h-2.5 w-2.5 -translate-x-1/2 rotate-45 border-l border-t border-rule bg-white"
+                            aria-hidden="true"
+                          />
+
+                          <div className="grid grid-cols-2 gap-6">
+                            {/* Column 1: Commercial Transportation & Storage (6 services) */}
+                            <div>
+                              <div className="mb-2.5 flex items-center gap-2 border-b border-rule/70 pb-2">
+                                <span className="h-1.5 w-1.5 rounded-full bg-amber" />
+                                <span className="label-micro text-[0.635rem] font-bold uppercase tracking-wider text-ink">
+                                  Commercial Transportation
                                 </span>
-                                <span>
-                                  <span className="block text-[0.885rem] font-semibold text-ink transition-colors group-hover:text-brand">
-                                    {s.name}
-                                  </span>
-                                  <span className="mt-0.5 block text-[0.775rem] leading-[1.5] text-muted">
-                                    {s.eyebrow}
-                                  </span>
+                              </div>
+                              <div className="space-y-0.5">
+                                {services
+                                  .filter((s) => s.category === "transportation" || s.slug === "storage-warehousing")
+                                  .map((s) => (
+                                    <Link
+                                      key={s.slug}
+                                      to={`/services/${s.slug}`}
+                                      className="group flex items-start gap-2.5 rounded-[3px] px-2.5 py-2 transition-colors hover:bg-kraft"
+                                    >
+                                      <span className="tabular label-micro mt-[3px] text-[0.6rem] text-amber-dark">
+                                        {s.index}
+                                      </span>
+                                      <span>
+                                        <span className="block text-[0.855rem] font-semibold text-ink transition-colors group-hover:text-brand">
+                                          {s.name}
+                                        </span>
+                                        <span className="block text-[0.735rem] leading-[1.4] text-muted">
+                                          {s.eyebrow}
+                                        </span>
+                                      </span>
+                                    </Link>
+                                  ))}
+                              </div>
+                            </div>
+
+                            {/* Column 2: Packers & Movers & Relocation (6 services) */}
+                            <div>
+                              <div className="mb-2.5 flex items-center gap-2 border-b border-rule/70 pb-2">
+                                <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+                                <span className="label-micro text-[0.635rem] font-bold uppercase tracking-wider text-ink">
+                                  Packers & Movers
                                 </span>
-                              </Link>
-                            ))}
+                              </div>
+                              <div className="space-y-0.5">
+                                {services
+                                  .filter((s) => s.category === "relocation" || s.slug === "car-bike-transport")
+                                  .map((s) => (
+                                    <Link
+                                      key={s.slug}
+                                      to={`/services/${s.slug}`}
+                                      className="group flex items-start gap-2.5 rounded-[3px] px-2.5 py-2 transition-colors hover:bg-kraft"
+                                    >
+                                      <span className="tabular label-micro mt-[3px] text-[0.6rem] text-amber-dark">
+                                        {s.index}
+                                      </span>
+                                      <span>
+                                        <span className="block text-[0.855rem] font-semibold text-ink transition-colors group-hover:text-brand">
+                                          {s.name}
+                                        </span>
+                                        <span className="block text-[0.735rem] leading-[1.4] text-muted">
+                                          {s.eyebrow}
+                                        </span>
+                                      </span>
+                                    </Link>
+                                  ))}
+                              </div>
+                            </div>
                           </div>
-                          <Link
-                            to="/services"
-                            className="mt-1 flex items-center justify-between rounded-[3px] bg-ink px-4 py-3 text-[0.84rem] font-semibold text-paper transition-colors hover:bg-ink-soft"
-                          >
-                            View all services
-                            <span aria-hidden="true">→</span>
-                          </Link>
+
+                          <div className="mt-3 flex items-center justify-between border-t border-rule pt-2.5">
+                            <span className="text-[0.775rem] text-muted">
+                              Pan-India Permit Fleet • IBA Approved Transporter
+                            </span>
+                            <Link
+                              to="/services"
+                              className="inline-flex items-center gap-1.5 rounded-[3px] bg-ink px-3.5 py-1.5 text-[0.815rem] font-semibold text-paper transition-colors hover:bg-ink-soft"
+                            >
+                              View all 12 services
+                              <span aria-hidden="true">→</span>
+                            </Link>
+                          </div>
                         </div>
                       </motion.div>
                     ) : null}
