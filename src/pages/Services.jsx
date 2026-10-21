@@ -1,134 +1,57 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
-import ServicesGrid from "../components/home/ServicesGrid";
-import FAQAccordion from "../components/home/FAQAccordion";
-import QuoteCTA from "../components/common/QuoteCTA";
-import SectionHeading from "../components/common/SectionHeading";
-import Reveal from "../components/common/Reveal";
-import { services } from "../data/services";
-
-const BENEFITS = [
-  {
-    title: "One catalogue, one conversation",
-    text: "Whatever combination of services your move needs, it is discussed as a single scope rather than separate arrangements.",
-  },
-  {
-    title: "Scope you can edit",
-    text: "Packing support, handling help, transport, vehicle movement and storage can be taken together or separately.",
-  },
-  {
-    title: "Preparation notes included",
-    text: "Each service page explains what to prepare before the work begins, so there are fewer surprises on the day.",
-  },
-  {
-    title: "Routes discussed honestly",
-    text: "Coverage is confirmed for your specific route instead of being assumed from a marketing list.",
-  },
-];
+import CtaBand from "../components/common/CtaBand";
+import { publishedServices, serviceCategories } from "../data/services";
 
 export default function Services() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What relocation and moving services does Neelkanth Transport Services provide?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Neelkanth Transport Services provides complete household shifting, corporate office relocation, multi-layer packing and unpacking, loading and unloading, specialized car and bike transportation, local same-day shifting, intercity highway moves, and secure storage and warehousing across Punjab, Haryana, Chandigarh Tricity, and Delhi NCR.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can more than one service be combined for a single move?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Packing support, handling help, transportation, vehicle movement and storage can be combined into one custom package or requested individually based on your moving requirements.",
-        },
-      },
-    ],
-  };
+  const [cat, setCat] = useState("All");
+  const list = cat === "All" ? publishedServices : publishedServices.filter((s) => s.category === cat);
 
   return (
     <>
-      <Seo
-        title="Commercial Transportation & Packers and Movers Services | Neelkanth Transport"
-        description="Comprehensive commercial freight and relocation services — Full Truck Load (FTL), Part Truck Load (PTL), industrial machinery logistics, household shifting, office relocation, and storage across North India."
-        path="/services"
-        image="assets/services/ftl-freight.jpg"
-        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
-        jsonLd={faqJsonLd}
-      />
+      <Seo title="Transportation Services" description="Full truck load, part load, container, trailer and industrial cargo transportation services for businesses." />
+      <PageHero title="Transportation Services" intro="Transport options for your cargo, vehicle requirements and business needs." image="/assets/hero/hero-3.jpg" position="65% center" crumbs={[{ label: "Services" }]} />
 
-      <PageHero
-        index="01"
-        label="Complete Service Catalogue"
-        title="Commercial transportation & packers and movers, under one fleet"
-        intro="Twelve specialized services covering point-to-point highway freight, industrial cargo transport, corporate office moving, and careful household shifting."
-        image="assets/services/ftl-freight.jpg"
-        imageAlt="Commercial container truck driving on a multi-lane Indian highway"
-        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
-        objectPosition="50% 50%"
-      >
-        <ul className="mt-6 flex flex-wrap gap-2">
-          {services.map((s) => (
-            <li key={s.slug}>
-              <Link
-                to={`/services/${s.slug}`}
-                className="inline-flex items-center gap-2 rounded-[2px] border border-paper/25 px-3 py-1.5 text-[0.775rem] text-paper/85 transition-colors hover:border-amber hover:text-amber"
-              >
-                <span className="tabular label-micro text-[0.575rem] text-amber">{s.index}</span>
-                {s.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </PageHero>
+      <section className="section bg-white">
+        <div className="container-x">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <p className="lead max-w-xl">Browse the service catalogue below. Each service page explains typical cargo applications and the vehicle categories involved.</p>
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter services by category">
+              {serviceCategories.map((c) => (
+                <button key={c} type="button" role="tab" aria-selected={cat === c} onClick={() => setCat(c)} className={`h-10 rounded-md border px-4 text-sm font-semibold transition ${cat === c ? "border-navy bg-navy text-white" : "border-line text-ink hover:border-navy"}`}>
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
 
-      <ServicesGrid />
-
-      <section className="doc-container mt-24 md:mt-32" aria-labelledby="benefits-heading">
-        <SectionHeading
-          id="benefits-heading"
-          index="02"
-          label="How the catalogue works"
-          title="Built to be combined, not sold as a bundle"
-          intro="A move rarely fits one category cleanly. The service catalogue is structured so the scope can be shaped around the actual requirement."
-        />
-        <div className="mt-11 grid gap-x-12 gap-y-px md:grid-cols-2">
-          {BENEFITS.map((b, i) => (
-            <Reveal key={b.title} delay={(i % 2) * 0.08} y={16}>
-              <div className="flex h-full gap-5 border-t border-ink/12 py-7">
-                <span className="tabular font-display text-[1.6rem] font-extrabold leading-none text-ink/20" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="font-display text-[1.045rem] font-bold leading-snug text-ink">{b.title}</h3>
-                  <p className="mt-2.5 max-w-[52ch] text-[0.935rem] leading-[1.74] text-muted">{b.text}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+          <motion.div layout className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {list.map((s, i) => (
+                <motion.article layout key={s.slug} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.98 }} transition={{ duration: 0.3 }}>
+                  <Link to={`/services/${s.slug}`} className="group flex h-full flex-col rounded-md border border-line bg-white transition-all duration-300 hover:border-blue/40 hover:shadow-[0_18px_40px_-24px_rgba(8,27,54,0.35)]">
+                    <div className="img-hover aspect-[16/10] overflow-hidden rounded-t-md">
+                      <img src={s.image} alt={s.title} loading={i < 3 ? "eager" : "lazy"} width={960} height={600} className="h-full w-full object-cover" style={{ objectPosition: s.position }} />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <span className="eyebrow text-gold">{s.category}</span>
+                      <h2 className="h-card mt-2 text-navy">{s.title}</h2>
+                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{s.short}</p>
+                      <span className="link-arrow mt-5 text-sm">View service <ArrowRight size={16} /></span>
+                    </div>
+                  </Link>
+                </motion.article>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+          <p className="mt-10 text-xs text-muted">Service categories are configurable and should be confirmed with the business before publishing.</p>
         </div>
       </section>
-
-      <FAQAccordion
-        index="03"
-        label="Before you choose"
-        title="Questions about choosing and combining services"
-        intro="What to know before deciding which parts of a move you want handled and which you will prepare yourself."
-        ids={["estimate-details", "packing-available", "intercity-move", "vehicle-transport", "quote-request"]}
-      />
-
-      <div className="doc-container mt-20 md:mt-28">
-        <QuoteCTA
-          eyebrow="Not sure which service you need?"
-          title="Describe the move — we will help shape the scope."
-          text="Share the route, the property type and what needs to move. The service mix can be worked out together."
-        />
-      </div>
+      <CtaBand />
     </>
   );
 }

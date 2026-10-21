@@ -1,105 +1,34 @@
 import { Link } from "react-router-dom";
-import {
-  ArrowUpRight,
-  Boxes,
-  Building2,
-  Car,
-  Factory,
-  Home,
-  MapPin,
-  Package,
-  Route,
-  ShieldCheck,
-  Truck,
-  Warehouse,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { fadeUp } from "./motion";
 
-const ICONS = {
-  home: Home,
-  building: Building2,
-  package: Package,
-  truck: Truck,
-  car: Car,
-  "map-pin": MapPin,
-  route: Route,
-  warehouse: Warehouse,
-  boxes: Boxes,
-  factory: Factory,
-  fleet: ShieldCheck,
-};
-
-/**
- * Service card — a ruled document box rather than a floating rounded card:
- * image plate on top, hairline rule, tracked index label, title, copy, action.
- */
-export default function ServiceCard({ service, delay = 0, tone = "light", size = "md" }) {
-  const Icon = ICONS[service.icon] || Truck;
-  const isDark = tone === "dark";
-
+export default function ServiceCard({ service, size = "md", index }) {
+  const large = size === "lg";
   return (
-    <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-[3px] border transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-[3px] ${
-        isDark
-          ? "border-paper/15 bg-paper/[0.035] hover:border-paper/35"
-          : "border-rule bg-white hover:border-ink/25 hover:shadow-[0_14px_38px_-22px_rgba(14,36,57,0.42)]"
-      }`}
-    >
-      <Link
-        to={`/services/${service.slug}`}
-        className="flex h-full flex-col focus-visible:outline-offset-4"
-        aria-label={`Read more about ${service.name}`}
-      >
-        <div className={`relative w-full overflow-hidden ${size === "lg" ? "aspect-[16/10]" : "aspect-[16/9]"}`}>
-          <img
-            src={service.image}
-            alt={service.imageAlt}
-            loading="lazy"
-            decoding="async"
-            width="1536"
-            height="1024"
-            className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.055]"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-ink/72 via-ink/12 to-transparent"
-            aria-hidden="true"
-          />
-          <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-[2px] bg-paper/95 px-2.5 py-1.5">
-            <Icon className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
-            <span className="label-micro text-[0.6rem] text-ink">{service.eyebrow}</span>
-          </span>
-          <span
-            className="absolute bottom-3 right-3 tabular font-display text-[2.25rem] font-extrabold leading-none text-paper/25"
-            aria-hidden="true"
-          >
-            {service.index}
-          </span>
-        </div>
-
-        <div className="flex flex-1 flex-col p-5 md:p-6">
-          <h3
-            className={`font-display font-bold text-[1.16rem] leading-[1.28] ${
-              isDark ? "text-paper" : "text-ink"
-            }`}
-          >
-            {service.name}
-          </h3>
-          <div className="my-3 h-px w-full bg-amber/60" aria-hidden="true" />
-          <p className={`flex-1 text-[0.925rem] leading-[1.72] ${isDark ? "text-onink/75" : "text-muted"}`}>
-            {service.short}
-          </p>
-          <span
-            className={`mt-5 inline-flex items-center gap-2 label-micro text-[0.655rem] ${
-              isDark ? "text-amber" : "text-brand"
-            }`}
-          >
-            Service details
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
-              aria-hidden="true"
-            />
+    <motion.article variants={fadeUp} className={`group relative overflow-hidden rounded-md bg-navy ${large ? "min-h-[380px] lg:min-h-full" : "min-h-[260px]"}`}>
+      <Link to={`/services/${service.slug}`} className="img-hover absolute inset-0 block focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+        <img
+          src={service.image}
+          alt={service.title}
+          loading="lazy"
+          width={1200}
+          height={800}
+          className="h-full w-full object-cover"
+          style={{ objectPosition: service.position }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-navy/10" />
+        <div className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 ${large ? "p-7 md:p-9" : "p-6"}`}>
+          <div>
+            {typeof index === "number" && <span className="mb-2 block text-xs font-bold tabular-nums text-gold">{String(index + 1).padStart(2, "0")}</span>}
+            <h3 className={`font-heading font-bold text-white ${large ? "text-2xl md:text-[1.75rem]" : "text-[1.15rem] md:text-xl"}`}>{service.title}</h3>
+            <p className={`mt-2 max-w-md text-sm leading-relaxed text-white/75 ${large ? "" : "hidden sm:block"}`}>{service.short}</p>
+          </div>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-white/30 text-white transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-navy">
+            <ArrowUpRight size={18} />
           </span>
         </div>
       </Link>
-    </article>
+    </motion.article>
   );
 }

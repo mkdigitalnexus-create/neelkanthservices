@@ -1,22 +1,26 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import ErrorBoundary from "./components/common/ErrorBoundary.jsx";
+import App from "./App.jsx";
 import "./index.css";
-import { APP_BASE } from "./utils/appBase";
-import App from "./App";
 
-// Point the document base at the application root before React renders, so
-// relative asset paths resolve consistently on every client-side route and
-// regardless of whether the build is served from a domain root or a sub-path.
-const baseEl = document.querySelector("base");
-if (baseEl) {
-  baseEl.setAttribute("href", APP_BASE);
+// Catch any unhandled script errors outside React rendering
+if (typeof window !== "undefined") {
+  window.addEventListener("error", (e) => {
+    console.error("Global window error:", e.error || e.message);
+  });
 }
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </HelmetProvider>
+    </ErrorBoundary>
+  </React.StrictMode>
 );

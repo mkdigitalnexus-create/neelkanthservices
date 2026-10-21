@@ -1,45 +1,33 @@
 @import "tailwindcss";
 
-/* =========================================================
-   NEELKHANTH TRANSPORT SERVICES — DESIGN SYSTEM
-   Surface: consignment-note paper. Ink blocks: navy press run.
-   ========================================================= */
-
 @theme {
-  --color-paper: #fbf8f3;
-  --color-kraft: #f2ede4;
-  --color-kraft-deep: #e9e1d3;
-  --color-rule: #e3dccf;
-  --color-ink: #0e2439;
-  --color-ink-soft: #1b3a55;
-  --color-brand: #1769aa;
-  --color-brand-dark: #12547f;
-  --color-teal: #087f8c;
-  --color-amber: #e08a1e;
-  --color-amber-dark: #b96f12;
-  --color-body: #22303c;
-  --color-muted: #5c6b78;
-  --color-onink: #dfe8ef;
-
-  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
-
-  --radius-card: 4px;
+  --color-navy: #081b36;
+  --color-navy-800: #0c2446;
+  --color-navy-700: #102d57;
+  --color-blue: #075cc8;
+  --color-blue-dark: #063d85;
+  --color-gold: #f5b51b;
+  --color-gold-dark: #d99b0a;
+  --color-surface: #f3f6fa;
+  --color-surface-blue: #eaf1f9;
+  --color-ink: #15243a;
+  --color-muted: #627087;
+  --color-line: #dce4ee;
+  --font-heading: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --brand-navy: #0e2439;
-  --brand-blue: #1769aa;
-  --brand-teal: #087f8c;
-  --brand-amber: #e08a1e;
-  --surface-paper: #fbf8f3;
-  --surface-kraft: #f2ede4;
-  --text-main: #22303c;
-  --text-secondary: #5c6b78;
-  --border-rule: #e3dccf;
-  --container-max: 1240px;
-  --section-gap: clamp(4.5rem, 8vw, 8rem);
+  --brand-navy: #081b36;
+  --brand-blue: #075cc8;
+  --brand-blue-dark: #063d85;
+  --brand-gold: #f5b51b;
+  --brand-white: #ffffff;
+  --surface-light: #f3f6fa;
+  --surface-blue: #eaf1f9;
+  --text-primary: #15243a;
+  --text-secondary: #627087;
+  --border-subtle: #dce4ee;
 }
 
 html {
@@ -48,169 +36,102 @@ html {
 }
 
 body {
-  margin: 0;
-  background-color: var(--surface-paper);
-  color: var(--text-main);
-  font-family: var(--font-sans);
-  font-synthesis-weight: none;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: #fff;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-::selection {
-  background: var(--brand-amber);
-  color: #20160a;
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-:focus-visible {
-  outline: 2px solid var(--brand-blue);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
+img { display: block; }
 
-/* ---------- Document utilities ----------
-   Declared in the components layer so Tailwind utilities can still override
-   individual properties (font-size, tracking, case) on the same element. */
-
-@layer components {
-
-.doc-container {
+/* Layout */
+.container-x {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: 1280px;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: 20px;
+}
+@media (min-width: 640px) { .container-x { padding-inline: 28px; } }
+@media (min-width: 1024px) { .container-x { padding-inline: 44px; } }
+@media (min-width: 1280px) { .container-x { padding-inline: 64px; max-width: 1408px; } }
+
+.container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 
-@media (min-width: 768px) {
-  .doc-container {
-    padding-inline: 2rem;
-  }
-}
+.section { padding-block: 56px; }
+@media (min-width: 768px) { .section { padding-block: 80px; } }
+@media (min-width: 1024px) { .section { padding-block: 104px; } }
 
-.label-micro {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 700;
+/* Typography scale */
+.h-hero { font-size: clamp(2.75rem, 5.2vw, 5rem); line-height: 1.02; font-weight: 800; max-width: 700px; }
+.h-page { font-size: clamp(2.5rem, 4.5vw, 4.25rem); line-height: 1.04; font-weight: 800; }
+.h-section { font-size: clamp(2rem, 3.2vw, 3.25rem); line-height: 1.08; font-weight: 800; }
+.h-card { font-size: 1.25rem; line-height: 1.3; font-weight: 700; }
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  line-height: 1;
+  font-weight: 700;
 }
+.lead { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
 
-.tabular {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1;
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 54px; padding-inline: 28px; border-radius: 6px;
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer; white-space: nowrap;
 }
+.btn:focus-visible { outline: 3px solid rgba(7, 92, 200, 0.45); outline-offset: 2px; }
+.btn-gold { background: var(--brand-gold); color: var(--brand-navy); }
+.btn-gold:hover { background: #ffc43a; box-shadow: 0 10px 24px -10px rgba(245, 181, 27, 0.6); }
+.btn-outline-light { border: 1.5px solid rgba(255,255,255,0.55); color: #fff; background: rgba(255,255,255,0.04); }
+.btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+.btn-outline-dark { border: 1.5px solid var(--brand-navy); color: var(--brand-navy); background: transparent; }
+.btn-outline-dark:hover { background: var(--brand-navy); color: #fff; }
+.btn-navy { background: var(--brand-navy); color: #fff; }
+.btn-navy:hover { background: var(--brand-blue-dark); }
+.btn-sm { height: 46px; padding-inline: 22px; font-size: 0.9rem; }
 
-.display-tight {
-  letter-spacing: -0.028em;
-  line-height: 0.95;
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-heading); font-weight: 700; color: var(--brand-blue);
 }
+.link-arrow svg { transition: transform 200ms ease; }
+.link-arrow:hover svg { transform: translateX(4px); }
 
-/* Ruled "waybill" field box */
-.field-rule {
-  background-color: #fffdf9;
-  border: 1px solid var(--border-rule);
-  border-bottom-width: 2px;
-  border-radius: 2px;
-  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+/* Forms */
+.field-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+.field {
+  width: 100%; height: 50px; border: 1px solid var(--border-subtle); border-radius: 6px;
+  padding-inline: 14px; font-size: 0.95rem; background: #fff; color: var(--text-primary);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
+.field:focus { outline: none; border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(7, 92, 200, 0.15); }
+.field.error { border-color: #c9372c; }
+textarea.field { height: auto; padding-block: 12px; min-height: 120px; resize: vertical; }
+.field-error { font-size: 0.78rem; color: #c9372c; margin-top: 6px; }
 
-.field-rule:focus {
-  outline: none;
-  border-color: var(--brand-blue);
-  box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.16);
-}
+.gold-line { width: 48px; height: 3px; background: var(--brand-gold); border-radius: 2px; }
 
-.field-error {
-  border-color: #c0392b !important;
-  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
-}
+.img-hover img { transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.img-hover:hover img { transform: scale(1.03); }
 
-/* Diagonal caution chevrons painted on truck tailgates */
-.chevron-band {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--brand-amber) 0 10px,
-    transparent 10px 20px
-  );
-}
-
-.hatch-soft {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(14, 36, 57, 0.05) 0 1px,
-    transparent 1px 7px
-  );
-}
-
-.paper-grain {
-  background-image: radial-gradient(rgba(14, 36, 57, 0.045) 1px, transparent 1px);
-  background-size: 4px 4px;
-}
-
-/* Thin rule used between document rows */
-.rule-t {
-  border-top: 1px solid var(--border-rule);
-}
-.rule-b {
-  border-bottom: 1px solid var(--border-rule);
-}
-
-/* ---------- Carousel / ken burns ---------- */
-@keyframes kb-slow {
-  from {
-    transform: scale(1.04);
-  }
-  to {
-    transform: scale(1.12);
-  }
-}
-
-.kb {
-  animation: kb-slow 16s ease-out both;
-}
-
-@keyframes draw-x {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.draw-x {
-  transform-origin: left center;
-  animation: draw-x 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Swiper overrides so it matches the document look */
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-.swiper-slide {
-  overflow: hidden;
-}
-
-}
-
-/* Hide native number input spinners for cleaner form fields */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0.55;
-  cursor: pointer;
-}
+/* Swiper */
+.hero-swiper, .hero-swiper .swiper-wrapper, .hero-swiper .swiper-slide { height: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

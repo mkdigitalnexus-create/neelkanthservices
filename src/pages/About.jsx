@@ -1,321 +1,99 @@
 import { Link } from "react-router-dom";
-import {
-  Award,
-  Calendar,
-  CheckCircle2,
-  ClipboardList,
-  Eye,
-  MessagesSquare,
-  ShieldCheck,
-  Target,
-  Truck,
-  Users,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Target, Eye, ShieldCheck, Handshake, MessageSquare, Route } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import SectionHeading from "../components/common/SectionHeading";
-import Reveal from "../components/common/Reveal";
-import QuoteCTA from "../components/common/QuoteCTA";
-import { siteConfig } from "../config/siteConfig";
+import CtaBand from "../components/common/CtaBand";
+import { fadeUp, imageReveal, stagger, viewport } from "../components/common/motion";
 
-const STATS = [
-  { icon: Calendar, value: siteConfig.yearsOfExperience, label: "Years of Moving Excellence", note: "Serving families & businesses since 2011" },
-  { icon: Users, value: siteConfig.movesCompleted, label: "Relocations Completed", note: "Homes, apartments & corporate premises" },
-  { icon: Truck, value: siteConfig.fleetCount, label: "Owned Container Fleet", note: "GPS-enabled, closed-body weather-proof trucks" },
-  { icon: ShieldCheck, value: siteConfig.satisfactionRate, label: "Damage-Free Delivery Record", note: "Backed by multi-layer packing standards" },
-];
-
-const PRINCIPLES = [
-  {
-    icon: ClipboardList,
-    title: "Plan before packing",
-    text: "Every item category, elevator constraint, and destination delivery order is surveyed in advance. We bring the right materials and team for your exact belongings.",
-  },
-  {
-    icon: MessagesSquare,
-    title: "Transparent written estimates",
-    text: "All quotes are documented in plain language with no hidden destination costs, unexpected fuel surcharges, or last-minute surprises on moving day.",
-  },
-  {
-    icon: Target,
-    title: "Precision loading & delivery care",
-    text: "Receiving address access, lift availability, and destination placement are mapped before dispatch, ensuring unloading is as smooth as loading.",
-  },
-  {
-    icon: Eye,
-    title: "Complete transit transparency",
-    text: "Every carton is clearly labeled by room and item group, with direct coordinator contact and GPS convoy tracking across every highway route.",
-  },
-];
-
-const GALLERY = [
-  {
-    src: "assets/services/packing.jpg",
-    alt: "Hands wrapping a wooden drawer unit in bubble wrap and stretch film beside stacked cartons",
-    caption: "Multi-layer packing — 5-ply cartons, foam and waterproof stretch film",
-  },
-  {
-    src: "assets/services/loading.jpg",
-    alt: "Movers loading wrapped furniture and cartons into a transport container over a steel ramp",
-    caption: "Systematic loading — planned weight distribution and securing belts",
-  },
-  {
-    src: "assets/hero/hero-transport.jpg",
-    alt: "A closed-body goods truck travelling along a highway in early morning haze",
-    caption: "Highway transit — GPS-enabled enclosed container vehicles",
-  },
-  {
-    src: "assets/about/logistics-fleet.jpg",
-    alt: "A row of goods trucks parked in a transport yard at dawn",
-    caption: "Dedicated fleet — company-owned and maintained transport fleet",
-  },
+const values = [
+  { icon: ShieldCheck, t: "Safety first", d: "Cargo is handled with care and vehicles are selected to suit the load, not the other way round." },
+  { icon: Handshake, t: "Reliability", d: "We commit to what we can deliver and communicate early when plans need to change." },
+  { icon: MessageSquare, t: "Transparency", d: "Clear scope, clear coordination and honest updates throughout the journey." },
+  { icon: Route, t: "Practical planning", d: "Routes and schedules are planned around real-world loading and road conditions." },
 ];
 
 export default function About() {
   return (
     <>
-      <Seo
-        title="About Us | Neelkanth Transport Services — 14+ Years of Relocation Excellence"
-        description="Learn about Neelkanth Transport Services: 14+ years of trusted household shifting, office relocation, and logistics across Punjab, Haryana, Chandigarh, and Delhi NCR. IBA Approved & ISO 9001:2015 Certified."
-        path="/about"
-        image="assets/about/logistics-fleet.jpg"
-        breadcrumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]}
-      />
+      <Seo title="About Us" description="Learn how Neelkhanth Transport Services approaches commercial and industrial road transportation for businesses across India." />
+      <PageHero title="Built for the Journey. Trusted for the Delivery." intro="A transport partner focused on commercial cargo, industrial freight and the businesses that depend on them." image="/assets/services/about.jpg" position="center 40%" crumbs={[{ label: "About" }]} />
 
-      <PageHero
-        index="01"
-        label="About the company"
-        title="Transportation & relocation built on care, precision, and 14+ years of trust"
-        intro="Neelkanth Transport Services Pvt. Ltd. is a premier commercial transportation and packers & movers provider serving North India — specialized in Full Truck Load (FTL) freight, industrial machinery transport, corporate relocation, and planned household shifting."
-        image="assets/about/logistics-fleet.jpg"
-        imageAlt="A row of goods trucks parked in a transport yard at dawn"
-        breadcrumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]}
-      >
-        <div className="mt-7 flex flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-1.5 rounded-[3px] border border-amber/40 bg-amber/15 px-3 py-1.5 label-micro text-[0.68rem] text-amber">
-            <Award className="h-3.5 w-3.5" />
-            IBA Approved Transporter ({siteConfig.ibaApprovedCode})
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-[3px] border border-paper/20 bg-paper/10 px-3 py-1.5 label-micro text-[0.68rem] text-paper">
-            <ShieldCheck className="h-3.5 w-3.5 text-teal" />
-            {siteConfig.isoCertification}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-[3px] border border-paper/20 bg-paper/10 px-3 py-1.5 label-micro text-[0.68rem] text-paper">
-            <CheckCircle2 className="h-3.5 w-3.5 text-amber" />
-            GST Registered: {siteConfig.gstin}
-          </span>
-        </div>
-      </PageHero>
-
-      {/* Stats Grid */}
-      <section className="doc-container relative -mt-10 z-20" aria-label="Key company achievements">
-        <Reveal>
-          <div className="grid gap-px overflow-hidden rounded-[4px] border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4 shadow-lg">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="bg-white p-7 transition-colors hover:bg-kraft/40">
-                <stat.icon className="h-6 w-6 text-brand" />
-                <p className="mt-4 tabular font-display text-[2.2rem] font-extrabold leading-none text-ink">
-                  {stat.value}
-                </p>
-                <p className="mt-2 font-display text-[0.98rem] font-bold text-ink">{stat.label}</p>
-                <p className="mt-1 text-[0.82rem] text-muted">{stat.note}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Brand introduction */}
-      <section className="doc-container mt-20 md:mt-28" aria-labelledby="about-intro">
-        <SectionHeading
-          id="about-intro"
-          index="02"
-          label="Our Story"
-          title="Moving is not just cargo — it's your home, your memories, and your livelihood"
-          intro="Founded in 2011 in Ludhiana, Neelkanth Transport Services started with a clear belief: that moving should not be stressful, chaotic, or opaque. Over the last decade and a half, we have grown into one of North India's most respected relocation names by treating every customer's belongings as if they were our own."
-        />
-
-        <div className="mt-11 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-          <Reveal>
-            <div className="space-y-5 text-[1.015rem] leading-[1.82] text-muted">
-              <p>
-                What began as a regional freight carrier has evolved into a full-spectrum moving and logistics enterprise. Today, Neelkanth Transport operates an owned fleet of over 45 closed-body container trucks and car carriers, supported by more than 120 full-time trained packing specialists, carpenters, and move managers.
-              </p>
-              <p>
-                We do not rely on unvetted day-laborers. Every member of our handling crew is thoroughly background-verified and rigorously trained in multi-layer packing techniques: dismantling and reassembling modular furniture, securing double-door refrigerators, wrapping fragile bone china in honeycomb paper, and handling luxury electronics with anti-static bubble wrap.
-              </p>
-              <p>
-                With regional hubs in Ludhiana, Chandigarh Tricity, and New Delhi / Gurugram, we provide seamless door-to-door relocation across Punjab, Haryana, Chandigarh, and Delhi NCR, as well as express highway routes to all major metropolitan centers in India.
-              </p>
+      <section className="section bg-white">
+        <div className="container-x grid items-center gap-10 lg:grid-cols-[45fr_55fr] lg:gap-16">
+          <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewport} className="lg:order-1">
+            <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3"><span className="gold-line" /><span className="eyebrow text-blue">Company profile</span></motion.div>
+            <motion.h2 variants={fadeUp} className="h-section text-navy">Transportation With a Business Mindset.</motion.h2>
+            <motion.p variants={fadeUp} className="lead mt-6">Neelkhanth Transport Services provides road transportation for commercial goods and industrial cargo. Our work begins with understanding what is being moved, where it needs to go and the conditions at both ends of the journey.</motion.p>
+            <motion.p variants={fadeUp} className="lead mt-4">We are not a packers-and-movers company. Our focus is on business freight: full and part truck loads, container and trailer movements, and recurring supply runs for manufacturers, distributors and project teams.</motion.p>
+            <motion.div variants={fadeUp} className="mt-8"><Link to="/services" className="link-arrow">Explore our services <ArrowRight size={18} /></Link></motion.div>
+          </motion.div>
+          <motion.div variants={imageReveal} initial="hidden" whileInView="show" viewport={viewport} className="relative lg:order-2">
+            <div className="aspect-[4/3] overflow-hidden rounded-md">
+              <img src="/assets/hero/hero-2.jpg" alt="Container trailer travelling along an expressway at dusk" loading="lazy" width={1200} height={900} className="h-full w-full object-cover" style={{ objectPosition: "60% center" }} />
             </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <aside className="rounded-[4px] border border-rule bg-kraft/55 p-7">
-              <h3 className="font-display text-[1.135rem] font-bold leading-snug text-ink">
-                The Neelkanth Standard of Care
-              </h3>
-              <ul className="mt-5 space-y-4">
-                {[
-                  "Permanent, certified packing and carpentry crew on company payroll.",
-                  "High-grade virgin packing supplies (5-ply cartons, bubble wrap, stretch film).",
-                  "Closed-body, weather-proof container trucks with GPS convoy tracking.",
-                  "Full written transit insurance coverage with immediate claim assistance.",
-                  "Committed move coordinator as your single direct point of contact.",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-amber" aria-hidden="true" />
-                    <span className="text-[0.925rem] leading-[1.72] text-muted">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </aside>
-          </Reveal>
+            <span className="absolute -top-3 right-8 h-1.5 w-28 bg-gold" aria-hidden="true" />
+          </motion.div>
         </div>
       </section>
 
-      {/* Mission & vision */}
-      <section className="relative mt-24 overflow-hidden bg-ink py-16 md:mt-32 md:py-24">
-        <div className="paper-grain absolute inset-0 opacity-[0.16]" aria-hidden="true" />
-        <div className="doc-container relative">
-          <SectionHeading
-            tone="dark"
-            index="03"
-            label="Mission & vision"
-            title="Our purpose and guiding principles"
-            intro="The values that direct every estimate, every packing box taped, and every vehicle dispatched."
-          />
-          <div className="mt-11 grid gap-6 md:grid-cols-2">
+      <section className="bg-navy text-white">
+        <div className="container-x grid gap-px overflow-hidden lg:grid-cols-2">
+          {[
+            { icon: Target, t: "Our mission", d: "To move commercial and industrial cargo dependably, with professional coordination and communication that businesses can plan around." },
+            { icon: Eye, t: "Our vision", d: "To be the transport partner businesses turn to first when a consignment needs to arrive as planned." },
+          ].map(({ icon: Icon, t, d }, i) => (
+            <div key={t} className={`py-14 lg:py-20 ${i === 0 ? "lg:pr-16" : "border-t border-white/10 lg:border-l lg:border-t-0 lg:pl-16"}`}>
+              <Icon size={28} strokeWidth={1.5} className="text-gold" />
+              <h2 className="mt-5 font-heading text-2xl font-bold md:text-3xl">{t}</h2>
+              <p className="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-white/70">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section bg-surface">
+        <div className="container-x">
+          <SectionHeading eyebrow="Our values" title="What Guides Every Journey" />
+          <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewport} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {values.map(({ icon: Icon, t, d }, i) => (
+              <motion.div key={t} variants={fadeUp} className="rounded-md border border-line bg-white p-7">
+                <div className="flex items-center justify-between">
+                  <Icon size={24} strokeWidth={1.6} className="text-blue" />
+                  <span className="text-xs font-bold tabular-nums text-gold">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="h-card mt-6 text-navy">{t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{d}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section bg-white">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <SectionHeading eyebrow="Our approach" title="How We Approach Transport" copy="Four principles that shape every consignment we coordinate." />
+          <ol className="divide-y divide-line border-y border-line">
             {[
-              {
-                kicker: "Our Mission",
-                title: "To simplify moving through care, honesty, and operational precision",
-                text: "To deliver stress-free relocation experiences by providing transparent written scopes, master craftsmanship in packing, modern containerized transportation, and unwavering accountability from origin to destination.",
-              },
-              {
-                kicker: "Our Vision",
-                title: "To be North India's most recommended relocation and transport brand",
-                text: "To set the benchmark for professionalism in Indian logistics, where customers, corporate institutions, and families trust us implicitly whenever life or business requires a change of address.",
-              },
-            ].map((card) => (
-              <Reveal key={card.kicker}>
-                <article className="h-full rounded-[4px] border border-paper/15 bg-paper/[0.045] p-8">
-                  <span className="label-micro text-amber">{card.kicker}</span>
-                  <h3 className="mt-4 font-display text-[1.42rem] font-extrabold display-tight text-paper">
-                    {card.title}
-                  </h3>
-                  <p className="mt-4 text-[0.965rem] leading-[1.78] text-onink/80">{card.text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Service principles */}
-      <section className="doc-container mt-24 md:mt-32" aria-labelledby="principles-heading">
-        <SectionHeading
-          id="principles-heading"
-          index="04"
-          label="Operational Standards"
-          title="Customer-focused service commitments"
-          intro="Four concrete commitments that govern how every team member at Neelkanth handles your move."
-        />
-        <div className="mt-11 grid gap-x-12 gap-y-px md:grid-cols-2">
-          {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 2) * 0.08} y={16}>
-              <div className="group flex h-full gap-5 border-t border-ink/12 py-7">
-                <p.icon className="mt-[3px] h-6 w-6 shrink-0 text-teal" aria-hidden="true" />
+              ["Understand the cargo", "Type, dimensions, weight, packaging and handling needs are reviewed before vehicles are discussed."],
+              ["Match the vehicle", "Open-body, closed-body, container or trailer — chosen to suit the load and loading conditions."],
+              ["Plan the route", "Pickup, delivery and timing are planned around practical road and site realities."],
+              ["Coordinate and communicate", "Clear updates from dispatch to handover so your team can plan with confidence."],
+            ].map(([t, d], i) => (
+              <li key={t} className="grid gap-2 py-6 sm:grid-cols-[64px_1fr]">
+                <span className="font-heading text-sm font-bold text-gold">{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <h3 className="font-display text-[1.055rem] font-bold leading-snug text-ink">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2.5 max-w-[52ch] text-[0.935rem] leading-[1.74] text-muted">
-                    {p.text}
-                  </p>
+                  <h3 className="font-heading text-lg font-bold text-navy">{t}</h3>
+                  <p className="mt-1.5 text-[0.95rem] leading-relaxed text-muted">{d}</p>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Workflow + gallery */}
-      <section className="doc-container mt-24 md:mt-32" aria-labelledby="workflow-heading">
-        <SectionHeading
-          id="workflow-heading"
-          index="05"
-          label="Transportation & packing workflow"
-          title="From initial survey to final placement"
-          intro="A glimpse into our daily packing standards, fleet handling, and warehouse operations."
-        />
-
-        <div className="mt-11 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {GALLERY.map((item, i) => (
-            <Reveal key={item.src} delay={i * 0.07} y={20}>
-              <figure className="group overflow-hidden rounded-[3px] border border-rule bg-white">
-                <div className="aspect-[4/3] w-full overflow-hidden">
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    loading="lazy"
-                    decoding="async"
-                    width="1536"
-                    height="1024"
-                    className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
-                  />
-                </div>
-                <figcaption className="border-t border-rule p-4 text-[0.845rem] leading-[1.6] text-muted">
-                  {item.caption}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Why structured planning matters */}
-      <section className="doc-container mt-24 md:mt-32" aria-labelledby="planning-heading">
-        <div className="grid gap-10 rounded-[4px] border border-rule bg-kraft/55 p-8 md:p-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <SectionHeading
-            id="planning-heading"
-            index="06"
-            label="Professional Execution"
-            title="Why structured relocation planning makes all the difference"
-            intro="A move without a plan results in confusion and delays. Our structured survey and color-coded packing protocols keep everything under control."
-          />
-          <Reveal delay={0.08}>
-            <div className="space-y-5 text-[0.975rem] leading-[1.82] text-muted">
-              <p>
-                Structured planning eliminates the chaos of moving day. When every room is categorized before the crew arrives, the right packing cartons, bubble layers, and foam protectors are ready on-site.
-              </p>
-              <p>
-                When container loading follows your delivery sequence, unloading at your new home or office happens systematically room-by-room, allowing you to settle in hours faster.
-              </p>
-              <p className="border-l-[3px] border-amber pl-5 font-serif text-[1.115rem] italic leading-[1.62] text-ink">
-                “Planning is not paperwork. It is the peace of mind that ensures not a single saucer, laptop, or wardrobe is damaged on the road.”
-              </p>
-              <Link
-                to="/our-process"
-                className="inline-flex items-center gap-2 text-[0.895rem] font-semibold text-brand transition-colors hover:text-amber-dark"
-              >
-                Read our step-by-step moving process
-                <span aria-hidden="true">&rarr;</span>
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="doc-container mt-20 md:mt-28">
-        <QuoteCTA
-          eyebrow="Next step"
-          title="Plan your upcoming move with Neelkanth Transport."
-          text="Request a free quote online or call our dispatch desk. We provide customized moving quotes tailored to your exact inventory."
-          secondaryLabel="View Services"
-          secondaryTo="/services"
-        />
-      </div>
+      <CtaBand />
     </>
   );
 }

@@ -1,0 +1,51 @@
+// Candidate industries. Confirm with the client before publishing.
+export const industries = [
+  {
+    id: "manufacturing",
+    name: "Manufacturing",
+    image: "/assets/industries/manufacturing.jpg",
+    position: "center",
+    description: "Raw materials, components and finished goods moving between plants, suppliers and warehouses.",
+    services: ["industrial-cargo", "full-truck-load", "open-body-truck"],
+  },
+  {
+    id: "construction",
+    name: "Construction",
+    image: "/assets/industries/construction.jpg",
+    position: "center",
+    description: "Steel, cement, aggregates and site materials delivered to project locations.",
+    services: ["trailer-transportation", "open-body-truck", "industrial-cargo"],
+  },
+  {
+    id: "industrial-equipment",
+    name: "Industrial Equipment",
+    image: "/assets/hero/hero-3.jpg",
+    position: "70% center",
+    description: "Machinery and heavy equipment requiring trailer transport and careful coordination.",
+    services: ["trailer-transportation", "long-distance"],
+  },
+  {
+    id: "retail-distribution",
+    name: "Retail & Distribution",
+    image: "/assets/gallery/warehouse.jpg",
+    position: "center",
+    description: "Packaged goods moving from distribution centres to dealers and retail points.",
+    services: ["commercial-goods", "part-truck-load", "closed-body-truck"],
+  },
+  {
+    id: "automobile-components",
+    name: "Automobile Components",
+    image: "/assets/fleet/fleet-dark.jpg",
+    position: "center",
+    description: "Parts and assemblies travelling between component makers and assembly plants.",
+    services: ["closed-body-truck", "regional-freight"],
+  },
+  {
+    id: "agriculture",
+    name: "Agriculture & Commodities",
+    image: "/assets/services/open-body.jpg",
+    position: "center",
+    description: "Bagged produce and commodities moving from collection points to markets and processors.",
+    services: ["open-body-truck", "regional-freight"],
+  },
+];

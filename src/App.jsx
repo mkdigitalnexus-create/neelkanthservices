@@ -1,36 +1,37 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { APP_BASENAME } from "./utils/appBase";
-import PageLayout from "./components/layout/PageLayout";
-import ScrollToTop from "./components/common/ScrollToTop";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
-import OurProcess from "./pages/OurProcess";
-import ServiceAreas from "./pages/ServiceAreas";
-import GetQuote from "./pages/GetQuote";
-import Contact from "./pages/Contact";
+import Fleet from "./pages/Fleet";
+import Industries from "./pages/Industries";
+import RoutesPage from "./pages/Routes";
+import Gallery from "./pages/Gallery";
 import FAQ from "./pages/FAQ";
+import GetAQuote from "./pages/GetAQuote";
+import Contact from "./pages/Contact";
+import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <BrowserRouter basename={APP_BASENAME}>
-      <ScrollToTop />
-      <PageLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/our-process" element={<OurProcess />} />
-          <Route path="/service-areas" element={<ServiceAreas />} />
-          <Route path="/get-a-quote" element={<GetQuote />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </PageLayout>
-    </BrowserRouter>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
+        <Route path="/fleet" element={<Fleet />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/routes" element={<RoutesPage />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/get-a-quote" element={<GetAQuote />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<LegalNotice />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
