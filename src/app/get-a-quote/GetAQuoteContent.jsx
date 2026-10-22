@@ -1,31 +1,68 @@
-import { useLocation, Link } from "react-router-dom";
-import { Phone, Mail, Clock, ArrowRight, MapPin, MessageCircle } from "lucide-react";
-import Seo from "../components/common/Seo";
-import PageHero from "../components/common/PageHero";
-import QuoteForm from "../components/forms/QuoteForm";
-import { siteConfig } from "../data/siteConfig";
+"use client";
 
-export default function GetAQuote() {
-  const { state } = useLocation();
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { Phone, ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import PageHero from "../../components/common/PageHero";
+import QuoteForm from "../../components/forms/QuoteForm";
+import { siteConfig } from "../../data/siteConfig";
+
+function QuoteFormContainer() {
+  const searchParams = useSearchParams();
+  const prefill = searchParams
+    ? {
+        pickupCity: searchParams.get("from") || "",
+        deliveryCity: searchParams.get("to") || "",
+        cargoType: searchParams.get("cargo") || "",
+        vehicle: searchParams.get("vehicle") || "",
+      }
+    : null;
+
+  return <QuoteForm prefill={prefill} />;
+}
+
+export default function GetAQuoteContent() {
   const c = siteConfig.contact;
+
   return (
     <>
-      <Seo title="Request a Quote" description="Share your route, cargo and vehicle requirement to request a transport quote from Neelkhanth Transport Services." />
-      <PageHero title="Request a Quote" intro="Tell us about your consignment and we will discuss the right transport option with you." image="/assets/hero/cta.jpg" position="35% center" crumbs={[{ label: "Get a Quote" }]} />
+      <PageHero
+        title="Request a Fast Transport Quote"
+        intro="Tell us about your consignment route, cargo, and vehicle needs. Get competitive rates for full truck loads and road freight across Delhi NCR, Haryana & Pan-India."
+        image="/assets/hero/cta.jpg"
+        position="35% center"
+        crumbs={[{ label: "Get a Quote" }]}
+      />
 
       <section className="section bg-surface">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_340px] lg:gap-14">
-          <QuoteForm prefill={state?.prefill} />
+          <Suspense fallback={<div className="p-8 text-center text-muted">Loading quote form...</div>}>
+            <QuoteFormContainer />
+          </Suspense>
+
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-md border border-line bg-white p-7">
+            <div className="rounded-md border border-line bg-white p-7 shadow-sm">
               <h2 className="font-heading text-lg font-bold text-navy">What helps us respond quickly</h2>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
-                {["Pickup and delivery cities", "Cargo type, approximate weight and volume", "Packaging and loading arrangements", "Preferred date or timing window", "Any special handling instructions"].map((t, i) => (
-                  <li key={t} className="flex gap-3"><span className="font-heading text-xs font-bold text-gold">{String(i + 1).padStart(2, "0")}</span>{t}</li>
+                {[
+                  "Pickup and delivery cities",
+                  "Cargo type, approximate weight and volume",
+                  "Packaging and loading arrangements",
+                  "Preferred date or timing window",
+                  "Any special handling instructions",
+                ].map((t, i) => (
+                  <li key={t} className="flex gap-3">
+                    <span className="font-heading text-xs font-bold text-gold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {t}
+                  </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-md bg-navy p-7 text-white">
+
+            <div className="rounded-md bg-navy p-7 text-white shadow-sm">
               <h2 className="font-heading text-lg font-bold">Prefer to call directly?</h2>
               <p className="mt-2 text-xs text-white/70">
                 Call our Gurugram dispatch office for immediate vehicle availability and spot rates.
@@ -71,7 +108,9 @@ export default function GetAQuote() {
                   </div>
                 </li>
               </ul>
-              <Link to="/contact" className="link-arrow mt-6 text-gold">View full contact details & map <ArrowRight size={16} /></Link>
+              <Link href="/contact" className="link-arrow mt-6 text-gold">
+                View full contact details & map <ArrowRight size={16} />
+              </Link>
             </div>
           </aside>
         </div>

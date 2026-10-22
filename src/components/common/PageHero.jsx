@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { fadeUp, stagger } from "./motion";
@@ -50,11 +52,11 @@ export default function PageHero({ title, intro, image, position = "center 15%",
       <div className="container-x relative py-20 md:py-28 lg:py-32">
         <motion.div variants={stagger(0.08)} initial="hidden" animate="show">
           <motion.nav variants={fadeUp} aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-white/70">
-            <Link to="/" className="transition hover:text-white">Home</Link>
+            <Link href="/" className="transition hover:text-white">Home</Link>
             {crumbs.map((c, i) => (
               <span key={i} className="flex items-center gap-1.5">
                 <ChevronRight size={12} />
-                {c.to ? <Link to={c.to} className="transition hover:text-white">{c.label}</Link> : <span className="text-gold font-bold">{c.label}</span>}
+                {c.to ? <Link href={c.to} className="transition hover:text-white">{c.label}</Link> : <span className="text-gold font-bold">{c.label}</span>}
               </span>
             ))}
           </motion.nav>

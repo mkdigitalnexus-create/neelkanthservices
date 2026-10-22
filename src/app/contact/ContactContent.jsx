@@ -1,20 +1,16 @@
-import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
-import Seo from "../components/common/Seo";
-import PageHero from "../components/common/PageHero";
-import ContactForm from "../components/forms/ContactForm";
-import { siteConfig } from "../data/siteConfig";
+"use client";
 
-export default function Contact() {
+import Link from "next/link";
+import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
+import PageHero from "../../components/common/PageHero";
+import ContactForm from "../../components/forms/ContactForm";
+import { siteConfig } from "../../data/siteConfig";
+
+export default function ContactContent() {
   const c = siteConfig.contact;
 
   return (
     <>
-      <Seo
-        title="Contact Us — Transport Services in Gurugram, Delhi & Haryana"
-        description="Contact Neelkanth Transport Services in Dhankot, Gurugram. Call +91 76781 76144 or +91 98124 58224 for commercial freight booking across Delhi, Gurugram, Ghaziabad & Haryana."
-        keywords="contact neelkanth transport, transport company gurugram contact, dhankot transport office, transport number delhi, freight transport haryana phone"
-      />
       <PageHero
         title="Contact Us"
         intro="Reach out to our Gurugram dispatch office to discuss your cargo movement across Delhi NCR, Haryana and Pan-India."
@@ -130,7 +126,7 @@ export default function Contact() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/get-a-quote" className="btn btn-navy btn-sm">
+              <Link href="/get-a-quote" className="btn btn-navy btn-sm">
                 Request a Quote <ArrowRight size={16} />
               </Link>
               <a

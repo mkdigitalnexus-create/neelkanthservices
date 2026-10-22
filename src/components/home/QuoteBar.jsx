@@ -1,16 +1,18 @@
+"use client";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { cargoTypes, vehicleOptions } from "../forms/options";
 
 export default function QuoteBar() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [form, setForm] = useState({ pickupCity: "", deliveryCity: "", cargoType: "", vehicle: "" });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
   const submit = (e) => {
     e.preventDefault();
-    navigate("/get-a-quote", { state: { prefill: form } });
+    router.push("/get-a-quote");
   };
 
   return (

@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useForm, validators as v } from "./useForm";

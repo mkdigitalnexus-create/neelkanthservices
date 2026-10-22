@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "../common/SectionHeading";
 import Accordion from "../common/Accordion";
@@ -11,8 +11,8 @@ export default function FaqSection({ items = faqs.slice(0, 5), showAllLink = tru
         <div>
           <SectionHeading eyebrow="FAQ" title="Questions Before You Ship?" copy="Answers to the questions businesses ask most often before arranging transport." />
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="btn btn-navy btn-sm">Contact Us <ArrowRight size={16} /></Link>
-            {showAllLink && <Link to="/faq" className="btn btn-outline-dark btn-sm">All FAQs</Link>}
+            <Link href="/contact" className="btn btn-navy btn-sm">Contact Us <ArrowRight size={16} /></Link>
+            {showAllLink && <Link href="/faq" className="btn btn-outline-dark btn-sm">All FAQs</Link>}
           </div>
         </div>
         <Accordion items={items} />

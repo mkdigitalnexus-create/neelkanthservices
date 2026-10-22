@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { fleet } from "../../data/fleet";
@@ -30,7 +32,7 @@ export default function FleetShowcase() {
               ))}
             </motion.ul>
             <motion.div variants={fadeUp} className="mt-9">
-              <Link to="/fleet" className="btn btn-gold">Explore the Fleet <ArrowRight size={18} /></Link>
+              <Link href="/fleet" className="btn btn-gold">Explore the Fleet <ArrowRight size={18} /></Link>
             </motion.div>
           </div>
         </motion.div>

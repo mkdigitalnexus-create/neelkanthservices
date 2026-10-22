@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Phone, MapPin, Clock, MessageCircle, ShieldCheck, ArrowRight, Truck } from "lucide-react";
 import { siteConfig } from "../../data/siteConfig";
 import { publishedServices } from "../../data/services";
@@ -75,7 +75,7 @@ export default function Footer() {
           
           {/* Col 1: Brand & Credibility (Span 4) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="inline-block rounded-xl bg-white p-3 shadow-md border border-white/20">
+            <Link href="/" className="inline-block rounded-xl bg-white p-3 shadow-md border border-white/20">
               <img
                 src="/assets/brand/logo.jpeg"
                 alt={siteConfig.name}
@@ -106,7 +106,7 @@ export default function Footer() {
               {publishedServices.slice(0, 6).map((s) => (
                 <li key={s.slug}>
                   <Link
-                    to={`/services/${s.slug}`}
+                    href={`/services/${s.slug}`}
                     className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block"
                   >
                     {s.title.replace(" Transportation", "")}
@@ -114,7 +114,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <Link to="/services" className="inline-flex items-center gap-1 text-gold hover:underline font-semibold text-xs mt-1">
+                <Link href="/services" className="inline-flex items-center gap-1 text-gold hover:underline font-semibold text-xs mt-1">
                   View All Services <ArrowRight size={12} />
                 </Link>
               </li>
@@ -127,23 +127,18 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               {siteConfig.nav.map((n) => (
                 <li key={n.to}>
-                  <Link to={n.to} className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block">
+                  <Link href={n.to} className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block">
                     {n.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link to="/gallery" className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block">
-                  Fleet Gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block">
+                <Link href="/faq" className="text-white/75 transition hover:text-gold hover:translate-x-0.5 inline-block">
                   FAQs & Help
                 </Link>
               </li>
               <li>
-                <Link to="/get-a-quote" className="text-gold font-semibold transition hover:underline inline-block">
+                <Link href="/get-a-quote" className="text-gold font-semibold transition hover:underline inline-block">
                   Request a Quote
                 </Link>
               </li>
@@ -191,10 +186,10 @@ export default function Footer() {
             </div>
 
             <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <Link to="/contact" className="btn btn-gold btn-sm text-xs h-9 px-4">
+              <Link href="/contact" className="btn btn-gold btn-sm text-xs h-9 px-4">
                 View On Google Maps
               </Link>
-              <Link to="/get-a-quote" className="text-xs font-semibold text-white/80 hover:text-white underline">
+              <Link href="/get-a-quote" className="text-xs font-semibold text-white/80 hover:text-white underline">
                 Get Fast Rate Card →
               </Link>
             </div>
@@ -231,9 +226,9 @@ export default function Footer() {
           <p>© {year} {siteConfig.name}. All rights reserved.</p>
           <p className="text-white/40 hidden lg:block">Dhankot, Gurugram, Haryana 122505 • Commercial Logistics & FTL Freight</p>
           <div className="flex items-center gap-5">
-            <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
-            <Link to="/legal-notice" className="hover:text-white transition">Legal Notice</Link>
-            <Link to="/faq" className="hover:text-white transition">FAQ</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/legal-notice" className="hover:text-white transition">Legal Notice</Link>
+            <Link href="/faq" className="hover:text-white transition">FAQ</Link>
           </div>
         </div>
       </div>

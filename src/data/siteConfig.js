@@ -64,7 +64,6 @@ export const siteConfig = {
     { label: "Contact", to: "/contact" },
   ],
   secondaryNav: [
-    { label: "Gallery", to: "/gallery" },
     { label: "FAQ", to: "/faq" },
     { label: "Privacy Policy", to: "/privacy-policy" },
   ],

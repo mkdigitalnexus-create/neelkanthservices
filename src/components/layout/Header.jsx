@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowRight, Phone, MapPin, MessageCircle } from "lucide-react";
 import { siteConfig } from "../../data/siteConfig";
@@ -8,7 +11,7 @@ import Logo from "../common/Logo";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const c = siteConfig.contact;
 
   useEffect(() => {
@@ -22,13 +25,12 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => (document.body.style.overflow = "");
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
-  const linkClass = ({ isActive }) =>
-    `relative py-2 text-[0.9rem] font-semibold transition-colors duration-200 hover:text-blue ${
-      isActive ? "text-blue after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:rounded after:bg-gold" : "text-ink"
-    }`;
+  const isLinkActive = (to) => (to === "/" ? pathname === "/" : pathname?.startsWith(to));
 
   return (
     <header className="sticky top-0 z-50 bg-white">
@@ -79,16 +81,25 @@ export default function Header() {
         }`}
       >
         <div className={`container-x flex items-center justify-between transition-[height] duration-200 ${scrolled ? "h-[64px] lg:h-[72px]" : "h-[68px] lg:h-[84px]"}`}>
-          <Link to="/" className="flex shrink-0 items-center py-2" aria-label={`${siteConfig.name} home`}>
+          <Link href="/" className="flex shrink-0 items-center py-2" aria-label={`${siteConfig.name} home`}>
             <Logo className={`w-auto object-contain transition-[height] duration-200 ${scrolled ? "h-[46px] lg:h-[54px]" : "h-[52px] lg:h-[64px]"}`} />
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-            {siteConfig.nav.map((n) => (
-              <NavLink key={n.to} to={n.to} end={n.to === "/"} className={linkClass}>
-                {n.label}
-              </NavLink>
-            ))}
+            {siteConfig.nav.map((n) => {
+              const active = isLinkActive(n.to);
+              return (
+                <Link
+                  key={n.to}
+                  href={n.to}
+                  className={`relative py-2 text-[0.9rem] font-semibold transition-colors duration-200 hover:text-blue ${
+                    active ? "text-blue after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:rounded after:bg-gold" : "text-ink"
+                  }`}
+                >
+                  {n.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2.5 sm:gap-3">
@@ -99,7 +110,7 @@ export default function Header() {
               <Phone size={14} className="text-blue" />
               <span>{c.phoneDisplay}</span>
             </a>
-            <Link to="/get-a-quote" className="btn btn-gold btn-sm hidden sm:inline-flex">
+            <Link href="/get-a-quote" className="btn btn-gold btn-sm hidden sm:inline-flex">
               Get a Quote <ArrowRight size={16} />
             </Link>
             <button
@@ -143,31 +154,41 @@ export default function Header() {
               </div>
               <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 py-6">
                 <ul className="space-y-1">
-                  {siteConfig.nav.map((n) => (
-                    <li key={n.to}>
-                      <NavLink
-                        to={n.to}
-                        end={n.to === "/"}
-                        className={({ isActive }) =>
-                          `flex items-center justify-between rounded-md px-3 py-3 font-heading text-lg font-bold ${isActive ? "bg-surface-blue text-blue" : "text-navy"}`
-                        }
-                      >
-                        {n.label}
-                        <ArrowRight size={16} className="text-gold" />
-                      </NavLink>
-                    </li>
-                  ))}
+                  {siteConfig.nav.map((n) => {
+                    const active = isLinkActive(n.to);
+                    return (
+                      <li key={n.to}>
+                        <Link
+                          href={n.to}
+                          className={`flex items-center justify-between rounded-md px-3 py-3 font-heading text-lg font-bold ${
+                            active ? "bg-surface-blue text-blue" : "text-navy"
+                          }`}
+                        >
+                          {n.label}
+                          <ArrowRight size={16} className="text-gold" />
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <div className="mt-6 border-t border-line pt-5">
                   <p className="eyebrow mb-3 text-muted">More</p>
                   <ul className="space-y-1">
-                    {siteConfig.secondaryNav.map((n) => (
-                      <li key={n.to}>
-                        <NavLink to={n.to} className={({ isActive }) => `block rounded-md px-3 py-2.5 text-[0.95rem] font-semibold ${isActive ? "text-blue" : "text-ink"}`}>
-                          {n.label}
-                        </NavLink>
-                      </li>
-                    ))}
+                    {siteConfig.secondaryNav.map((n) => {
+                      const active = isLinkActive(n.to);
+                      return (
+                        <li key={n.to}>
+                          <Link
+                            href={n.to}
+                            className={`block rounded-md px-3 py-2.5 text-[0.95rem] font-semibold ${
+                              active ? "text-blue" : "text-ink"
+                            }`}
+                          >
+                            {n.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
                 <div className="mt-6 border-t border-line pt-5 space-y-3">
@@ -217,8 +238,8 @@ export default function Header() {
                 </div>
               </nav>
               <div className="border-t border-line p-5">
-                <Link to="/get-a-quote" className="btn btn-gold w-full">
-                  Request a Quote <ArrowRight size={16} />
+                <Link href="/get-a-quote" className="btn btn-gold w-full">
+                  Request a Quote
                 </Link>
               </div>
             </motion.aside>

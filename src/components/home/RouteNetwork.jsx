@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import RouteMap from "../common/RouteMap";
@@ -28,7 +30,7 @@ export default function RouteNetwork() {
           </motion.div>
           <motion.p variants={fadeUp} className="mt-6 text-xs text-muted">{coverage.note}</motion.p>
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-            <Link to="/routes" className="btn btn-navy btn-sm">Enquire About a Route <ArrowRight size={16} /></Link>
+            <Link href="/routes" className="btn btn-navy btn-sm">Enquire About a Route <ArrowRight size={16} /></Link>
           </motion.div>
         </motion.div>
         <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={viewport} className="rounded-md border border-line bg-surface p-4 md:p-6">

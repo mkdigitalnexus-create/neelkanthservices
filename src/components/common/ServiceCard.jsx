@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { fadeUp } from "./motion";
@@ -7,7 +9,7 @@ export default function ServiceCard({ service, size = "md", index }) {
   const large = size === "lg";
   return (
     <motion.article variants={fadeUp} className={`group relative overflow-hidden rounded-md bg-navy ${large ? "min-h-[380px] lg:min-h-full" : "min-h-[260px]"}`}>
-      <Link to={`/services/${service.slug}`} className="img-hover absolute inset-0 block focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+      <Link href={`/services/${service.slug}`} className="img-hover absolute inset-0 block focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
         <img
           src={service.image}
           alt={service.title}

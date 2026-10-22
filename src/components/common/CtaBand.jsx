@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function CtaBand() {
@@ -18,8 +18,8 @@ export default function CtaBand() {
             <h2 className="h-section">Ready to Move Your Cargo Forward?</h2>
             <p className="lead mt-5 text-white/70">Tell us what you need to transport and discuss the next step with our team.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/get-a-quote" className="btn btn-gold">Request a Quote <ArrowRight size={18} /></Link>
-              <Link to="/contact" className="btn btn-outline-light">Contact Us</Link>
+              <Link href="/get-a-quote" className="btn btn-gold">Request a Quote <ArrowRight size={18} /></Link>
+              <Link href="/contact" className="btn btn-outline-light">Contact Us</Link>
             </div>
           </div>
         </div>

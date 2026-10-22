@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import SectionHeading from "../common/SectionHeading";
 import { fadeUp, stagger, viewport } from "../common/motion";

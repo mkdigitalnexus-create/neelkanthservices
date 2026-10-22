@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Eye, ShieldCheck, Handshake, MessageSquare, Route } from "lucide-react";
-import Seo from "../components/common/Seo";
-import PageHero from "../components/common/PageHero";
-import SectionHeading from "../components/common/SectionHeading";
-import CtaBand from "../components/common/CtaBand";
-import { fadeUp, imageReveal, stagger, viewport } from "../components/common/motion";
+import PageHero from "../../components/common/PageHero";
+import SectionHeading from "../../components/common/SectionHeading";
+import CtaBand from "../../components/common/CtaBand";
+import { fadeUp, imageReveal, stagger, viewport } from "../../components/common/motion";
 
 const values = [
   { icon: ShieldCheck, t: "Safety first", d: "Cargo is handled with care and vehicles are selected to suit the load, not the other way round." },
@@ -14,14 +15,9 @@ const values = [
   { icon: Route, t: "Practical planning", d: "Routes and schedules are planned around real-world loading and road conditions." },
 ];
 
-export default function About() {
+export default function AboutContent() {
   return (
     <>
-      <Seo
-        title="About Us — Best Transport Company in Gurugram, Delhi & Haryana"
-        description="Neelkanth Transport Services, based in Dhankot, Gurugram (opposite Zepto), is the leading commercial transport provider across Delhi, New Delhi, Ghaziabad, Haryana, and Pan India."
-        keywords="about neelkanth transport, transport company in gurugram, best logistics company haryana, commercial truck transport delhi ncr, dhankot transport office"
-      />
       <PageHero
         title="Built for the Journey. Trusted for the Delivery."
         intro="A premier transport and logistics partner headquartered in Gurugram, focused on commercial cargo, industrial freight and business supply chains."
@@ -47,7 +43,7 @@ export default function About() {
               Our core capability is commercial B2B freight: full truckloads (FTL), open-body carriers, multi-axle trailers, and container trucks. Whether handling industrial machinery, automotive components, construction materials, or consumer goods, we guarantee verified drivers, on-time placement, and 24/7 dispatch communication.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4 items-center">
-              <Link to="/services" className="link-arrow">
+              <Link href="/services" className="link-arrow">
                 Explore our services <ArrowRight size={18} />
               </Link>
               <a href="tel:+917678176144" className="btn btn-navy btn-sm">
@@ -57,7 +53,15 @@ export default function About() {
           </motion.div>
           <motion.div variants={imageReveal} initial="hidden" whileInView="show" viewport={viewport} className="relative lg:order-2">
             <div className="aspect-[4/3] overflow-hidden rounded-md">
-              <img src="/assets/hero/hero-2.jpg" alt="Container trailer travelling along an expressway at dusk" loading="lazy" width={1200} height={900} className="h-full w-full object-cover" style={{ objectPosition: "60% center" }} />
+              <img
+                src="/assets/hero/hero-2.jpg"
+                alt="Container trailer travelling along an expressway at dusk"
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+                style={{ objectPosition: "60% center" }}
+              />
             </div>
             <span className="absolute -top-3 right-8 h-1.5 w-28 bg-gold" aria-hidden="true" />
           </motion.div>

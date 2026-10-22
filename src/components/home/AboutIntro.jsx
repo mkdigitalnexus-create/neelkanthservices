@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { imageReveal, fadeUp, stagger, viewport } from "../common/motion";
@@ -39,7 +41,7 @@ export default function AboutIntro() {
             ))}
           </motion.ul>
           <motion.div variants={fadeUp} className="mt-8">
-            <Link to="/about" className="link-arrow">Learn more about us <ArrowRight size={18} /></Link>
+            <Link href="/about" className="link-arrow">Learn more about us <ArrowRight size={18} /></Link>
           </motion.div>
         </motion.div>
       </div>

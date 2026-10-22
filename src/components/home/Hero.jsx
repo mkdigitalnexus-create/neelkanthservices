@@ -1,5 +1,7 @@
+"use client";
+
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, A11y, Keyboard, EffectFade } from "swiper/modules";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -126,7 +128,7 @@ export default function Hero() {
                 {slides[index].copy}
               </motion.p>
               <motion.div {...heroFade(0.28)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link to="/get-a-quote" className="btn btn-gold">
+                <Link href="/get-a-quote" className="btn btn-gold">
                   Request a Quote <ArrowRight size={18} />
                 </Link>
                 <a href="tel:+917678176144" className="btn btn-outline-light flex items-center gap-2">

@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "../common/SectionHeading";
@@ -15,7 +17,7 @@ export default function ServicesShowcase() {
       <div className="container-x">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading eyebrow="What we move" title="Transportation Services" copy="Explore transport options for your cargo, vehicle requirements, and business needs." />
-          <Link to="/services" className="link-arrow shrink-0 md:mb-2">View all services <ArrowRight size={18} /></Link>
+          <Link href="/services" className="link-arrow shrink-0 md:mb-2">View all services <ArrowRight size={18} /></Link>
         </div>
 
         <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={viewport} className="mt-12 grid gap-5 lg:grid-cols-2 lg:gap-6">
@@ -28,7 +30,7 @@ export default function ServicesShowcase() {
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewport} className="mt-5 grid gap-5 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
           {rest.map((s) => (
             <motion.div key={s.slug} variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}>
-              <Link to={`/services/${s.slug}`} className="group flex h-full flex-col rounded-md border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue/40 hover:shadow-[0_18px_40px_-24px_rgba(8,27,54,0.35)]">
+              <Link href={`/services/${s.slug}`} className="group flex h-full flex-col rounded-md border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue/40 hover:shadow-[0_18px_40px_-24px_rgba(8,27,54,0.35)]">
                 <div className="img-hover mb-5 aspect-[16/10] overflow-hidden rounded">
                   <img src={s.image} alt="" loading="lazy" width={640} height={400} className="h-full w-full object-cover" style={{ objectPosition: s.position }} />
                 </div>
