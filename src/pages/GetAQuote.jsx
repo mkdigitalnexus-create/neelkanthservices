@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, Clock, ArrowRight, MapPin, MessageCircle } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import QuoteForm from "../components/forms/QuoteForm";
@@ -26,14 +26,52 @@ export default function GetAQuote() {
               </ul>
             </div>
             <div className="rounded-md bg-navy p-7 text-white">
-              <h2 className="font-heading text-lg font-bold">Prefer to talk?</h2>
-              <ul className="mt-4 space-y-3 text-sm text-white/80">
-                {c.phone && <li className="flex gap-3"><Phone size={18} className="shrink-0 text-gold" /><a href={`tel:${c.phone}`} className="hover:text-gold">{c.phoneDisplay || c.phone}</a></li>}
-                {c.email && <li className="flex gap-3"><Mail size={18} className="shrink-0 text-gold" /><a href={`mailto:${c.email}`} className="hover:text-gold">{c.email}</a></li>}
-                {c.hours && <li className="flex gap-3"><Clock size={18} className="shrink-0 text-gold" /><span>{c.hours}</span></li>}
-                {!c.phone && !c.email && <li className="text-white/60">Direct contact details will appear here once configured.</li>}
+              <h2 className="font-heading text-lg font-bold">Prefer to call directly?</h2>
+              <p className="mt-2 text-xs text-white/70">
+                Call our Gurugram dispatch office for immediate vehicle availability and spot rates.
+              </p>
+              <ul className="mt-5 space-y-4 text-sm text-white/90">
+                <li className="flex gap-3">
+                  <Phone size={18} className="shrink-0 text-gold mt-0.5" />
+                  <div>
+                    <span className="text-[11px] text-gold uppercase font-semibold block">Main Contact:</span>
+                    <a href={`tel:${c.phone}`} className="font-bold text-white hover:text-gold text-base">
+                      {c.phoneDisplay}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <Phone size={18} className="shrink-0 text-gold mt-0.5" />
+                  <div>
+                    <span className="text-[11px] text-white/60 uppercase block">Second Number:</span>
+                    <a href={`tel:${c.phoneSecondary}`} className="font-medium text-white/90 hover:text-gold">
+                      {c.phoneSecondaryDisplay}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <MessageCircle size={18} className="shrink-0 text-emerald-400 mt-0.5" />
+                  <div>
+                    <span className="text-[11px] text-emerald-400 uppercase font-semibold block">WhatsApp:</span>
+                    <a
+                      href={`https://wa.me/${c.whatsapp}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-emerald-400 hover:text-emerald-300"
+                    >
+                      Chat on WhatsApp (+91 76781 76144)
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <MapPin size={18} className="shrink-0 text-gold mt-0.5" />
+                  <div className="text-xs text-white/80">
+                    <span className="font-semibold text-white block">Head Office:</span>
+                    <span>{c.address}</span>
+                  </div>
+                </li>
               </ul>
-              <Link to="/contact" className="link-arrow mt-5 text-gold">Contact page <ArrowRight size={16} /></Link>
+              <Link to="/contact" className="link-arrow mt-6 text-gold">View full contact details & map <ArrowRight size={16} /></Link>
             </div>
           </aside>
         </div>

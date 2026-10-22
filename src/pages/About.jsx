@@ -17,17 +17,43 @@ const values = [
 export default function About() {
   return (
     <>
-      <Seo title="About Us" description="Learn how Neelkhanth Transport Services approaches commercial and industrial road transportation for businesses across India." />
-      <PageHero title="Built for the Journey. Trusted for the Delivery." intro="A transport partner focused on commercial cargo, industrial freight and the businesses that depend on them." image="/assets/services/about.jpg" position="center 40%" crumbs={[{ label: "About" }]} />
+      <Seo
+        title="About Us — Best Transport Company in Gurugram, Delhi & Haryana"
+        description="Neelkanth Transport Services, based in Dhankot, Gurugram (opposite Zepto), is the leading commercial transport provider across Delhi, New Delhi, Ghaziabad, Haryana, and Pan India."
+        keywords="about neelkanth transport, transport company in gurugram, best logistics company haryana, commercial truck transport delhi ncr, dhankot transport office"
+      />
+      <PageHero
+        title="Built for the Journey. Trusted for the Delivery."
+        intro="A premier transport and logistics partner headquartered in Gurugram, focused on commercial cargo, industrial freight and business supply chains."
+        image="/assets/services/about.jpg"
+        position="center 12%"
+        crumbs={[{ label: "About" }]}
+      />
 
       <section className="section bg-white">
         <div className="container-x grid items-center gap-10 lg:grid-cols-[45fr_55fr] lg:gap-16">
           <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewport} className="lg:order-1">
-            <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3"><span className="gold-line" /><span className="eyebrow text-blue">Company profile</span></motion.div>
-            <motion.h2 variants={fadeUp} className="h-section text-navy">Transportation With a Business Mindset.</motion.h2>
-            <motion.p variants={fadeUp} className="lead mt-6">Neelkhanth Transport Services provides road transportation for commercial goods and industrial cargo. Our work begins with understanding what is being moved, where it needs to go and the conditions at both ends of the journey.</motion.p>
-            <motion.p variants={fadeUp} className="lead mt-4">We are not a packers-and-movers company. Our focus is on business freight: full and part truck loads, container and trailer movements, and recurring supply runs for manufacturers, distributors and project teams.</motion.p>
-            <motion.div variants={fadeUp} className="mt-8"><Link to="/services" className="link-arrow">Explore our services <ArrowRight size={18} /></Link></motion.div>
+            <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3">
+              <span className="gold-line" />
+              <span className="eyebrow text-blue">Company profile</span>
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="h-section text-navy">
+              Delhi NCR's Dependable Commercial Transport Partner.
+            </motion.h2>
+            <motion.p variants={fadeUp} className="lead mt-6">
+              Neelkanth Transport Services provides premier commercial road transportation and freight logistics. Headquartered in Dhankot, Gurugram (opposite Zepto), we strategically serve the entire industrial belt of Gurugram, Manesar, Delhi, New Delhi, Ghaziabad, and Haryana, with direct long-haul corridors across India.
+            </motion.p>
+            <motion.p variants={fadeUp} className="lead mt-4">
+              Our core capability is commercial B2B freight: full truckloads (FTL), open-body carriers, multi-axle trailers, and container trucks. Whether handling industrial machinery, automotive components, construction materials, or consumer goods, we guarantee verified drivers, on-time placement, and 24/7 dispatch communication.
+            </motion.p>
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4 items-center">
+              <Link to="/services" className="link-arrow">
+                Explore our services <ArrowRight size={18} />
+              </Link>
+              <a href="tel:+917678176144" className="btn btn-navy btn-sm">
+                Call Main: +91 76781 76144
+              </a>
+            </motion.div>
           </motion.div>
           <motion.div variants={imageReveal} initial="hidden" whileInView="show" viewport={viewport} className="relative lg:order-2">
             <div className="aspect-[4/3] overflow-hidden rounded-md">

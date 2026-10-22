@@ -19,11 +19,41 @@ export default function QuoteBar() {
         <form onSubmit={submit} className="-mt-0 grid gap-4 border-b border-line py-7 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] lg:items-end lg:gap-5 lg:py-8">
           <div>
             <label htmlFor="qb-pickup" className="field-label">Pickup City</label>
-            <input id="qb-pickup" className="field" placeholder="e.g. Mumbai" value={form.pickupCity} onChange={set("pickupCity")} />
+            <input
+              id="qb-pickup"
+              className="field"
+              placeholder="e.g. Gurugram / Dhankot"
+              value={form.pickupCity}
+              onChange={set("pickupCity")}
+              list="qb-pickup-cities"
+            />
+            <datalist id="qb-pickup-cities">
+              <option value="Gurugram (Dhankot HQ)" />
+              <option value="Delhi NCR" />
+              <option value="New Delhi" />
+              <option value="Ghaziabad" />
+              <option value="Manesar" />
+              <option value="Faridabad" />
+            </datalist>
           </div>
           <div>
             <label htmlFor="qb-delivery" className="field-label">Delivery City</label>
-            <input id="qb-delivery" className="field" placeholder="e.g. Bengaluru" value={form.deliveryCity} onChange={set("deliveryCity")} />
+            <input
+              id="qb-delivery"
+              className="field"
+              placeholder="e.g. Delhi / Ghaziabad"
+              value={form.deliveryCity}
+              onChange={set("deliveryCity")}
+              list="qb-delivery-cities"
+            />
+            <datalist id="qb-delivery-cities">
+              <option value="Delhi" />
+              <option value="New Delhi" />
+              <option value="Ghaziabad" />
+              <option value="Gurugram" />
+              <option value="Haryana (Faridabad/Panipat)" />
+              <option value="Mumbai / JNPT" />
+            </datalist>
           </div>
           <div>
             <label htmlFor="qb-cargo" className="field-label">Cargo Type</label>

@@ -1,19 +1,39 @@
 // Illustrative coverage. Replace with verified routes before publishing.
 export const coverage = {
-  note: "Coverage shown is illustrative for this demonstration and should be confirmed with the business.",
+  note: "Operating from our primary dispatch terminal in Dhankot, Gurugram, we provide dedicated FTL, container, and industrial freight movement connecting Delhi NCR, Haryana, Gujarat, Maharashtra, and all major Indian industrial centers.",
   regions: [
-    { name: "Western India", cities: ["Mumbai", "Pune", "Surat", "Ahmedabad", "Nashik"] },
-    { name: "Northern India", cities: ["Delhi NCR", "Jaipur", "Ludhiana", "Lucknow"] },
-    { name: "Southern India", cities: ["Bengaluru", "Chennai", "Hyderabad", "Coimbatore"] },
-    { name: "Central & Eastern India", cities: ["Nagpur", "Indore", "Raipur", "Kolkata"] },
+    {
+      name: "Delhi NCR & Haryana (HQ)",
+      cities: [
+        "Gurugram (Dhankot HQ)",
+        "Delhi & New Delhi",
+        "Ghaziabad",
+        "Faridabad",
+        "Manesar & Bawal",
+        "Sonipat & Panipat",
+      ],
+    },
+    {
+      name: "Western India & Ports",
+      cities: ["Mumbai & JNPT", "Pune", "Ahmedabad", "Surat", "Vadodara", "Kandla / Mundra"],
+    },
+    {
+      name: "Rajasthan & Northern India",
+      cities: ["Jaipur", "Bhiwadi", "Ludhiana", "Chandigarh", "Lucknow", "Kanpur"],
+    },
+    {
+      name: "Southern & Eastern India",
+      cities: ["Bengaluru", "Chennai", "Hyderabad", "Nagpur", "Indore", "Kolkata"],
+    },
   ],
   corridors: [
-    { from: "Mumbai", to: "Delhi NCR" },
-    { from: "Mumbai", to: "Bengaluru" },
-    { from: "Pune", to: "Hyderabad" },
-    { from: "Ahmedabad", to: "Jaipur" },
-    { from: "Nagpur", to: "Kolkata" },
-    { from: "Chennai", to: "Bengaluru" },
+    { from: "Gurugram / Delhi", to: "Mumbai / JNPT" },
+    { from: "Delhi / Gurugram", to: "Ahmedabad / Surat" },
+    { from: "Ghaziabad / Delhi NCR", to: "Jaipur / Rajasthan" },
+    { from: "Haryana (Manesar / Faridabad)", to: "Pune / Maharashtra" },
+    { from: "Delhi NCR / Haryana", to: "Ludhiana / Punjab" },
+    { from: "Gurugram (Dhankot)", to: "Bengaluru / Hyderabad" },
+    { from: "Delhi / Ghaziabad", to: "Kolkata / Eastern Hub" },
   ],
 };
 
@@ -39,4 +59,4 @@ export const routeLinks = [
   ["nagpur", "hyderabad"], ["nagpur", "kolkata"], ["lucknow", "kolkata"], ["hyderabad", "bengaluru"],
   ["bengaluru", "chennai"], ["hyderabad", "chennai"], ["indore", "delhi"],
 ];
-export const highlightedLinks = [["mumbai", "pune"], ["pune", "hyderabad"], ["hyderabad", "bengaluru"]];
+export const highlightedLinks = [["delhi", "jaipur"], ["jaipur", "ahmedabad"], ["ahmedabad", "mumbai"], ["delhi", "lucknow"]];

@@ -1,35 +1,36 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, A11y, Keyboard } from "swiper/modules";
+import { Autoplay, A11y, Keyboard, EffectFade } from "swiper/modules";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import "swiper/css";
+import "swiper/css/effect-fade";
 import { heroText } from "../common/motion";
 
 const slides = [
   {
     image: "/assets/hero/hero-1.jpg",
-    position: "72% center",
-    mobilePosition: "78% center",
-    title: "Moving Cargo. Connecting Businesses.",
-    copy: "Dependable transportation solutions for commercial goods, industrial cargo, and business logistics requirements.",
+    position: "72% 15%",
+    mobilePosition: "78% 15%",
+    title: "Best Transport Services in Delhi, Gurugram & Haryana",
+    copy: "Top-rated commercial logistics and road freight partner headquartered in Dhankot, Gurugram. Fast, safe full truckload (FTL), container, and trailer transport across Delhi NCR, Ghaziabad & Pan-India.",
     overlay: "linear-gradient(90deg, rgba(8,27,54,0.94) 0%, rgba(8,27,54,0.76) 38%, rgba(8,27,54,0.24) 72%, rgba(8,27,54,0.08) 100%)",
   },
   {
     image: "/assets/hero/hero-2.jpg",
-    position: "70% center",
-    mobilePosition: "72% center",
-    title: "Transportation Built Around Your Business.",
-    copy: "Full and part truck loads, container and trailer movements, planned around your cargo and schedule.",
+    position: "70% 15%",
+    mobilePosition: "72% 15%",
+    title: "Fast Freight Across Delhi NCR & Nationwide Corridors",
+    copy: "Dedicated commercial fleet dispatched daily from Dhankot, Gurugram connecting Delhi, New Delhi, Ghaziabad, Haryana, Gujarat, Maharashtra, and all major industrial corridors.",
     overlay: "linear-gradient(90deg, rgba(8,27,54,0.94) 0%, rgba(8,27,54,0.72) 40%, rgba(8,27,54,0.2) 74%, rgba(8,27,54,0.06) 100%)",
   },
   {
     image: "/assets/hero/hero-3.jpg",
-    position: "70% center",
-    mobilePosition: "75% center",
-    title: "Every Journey Begins with Trust.",
-    copy: "Professional coordination and clear communication from the first enquiry to the final delivery.",
+    position: "70% 18%",
+    mobilePosition: "75% 18%",
+    title: "Heavy Commercial, Open-Body & Container Fleet",
+    copy: "Safe, on-time delivery with 24/7 dispatch coordination. Call +91 76781 76144 or +91 98124 58224 for instant rates and confirmed truck placement.",
     overlay: "linear-gradient(90deg, rgba(8,27,54,0.94) 0%, rgba(8,27,54,0.74) 38%, rgba(8,27,54,0.22) 72%, rgba(8,27,54,0.08) 100%)",
   },
 ];
@@ -56,15 +57,17 @@ export default function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden bg-navy"
-      style={{ height: "min(760px, calc(100svh - 92px))", minHeight: 590 }}
+      style={{ height: "min(820px, calc(100svh - 90px))", minHeight: 640 }}
       aria-roledescription="carousel"
       aria-label="Featured transport services"
     >
       <Swiper
-        modules={[Autoplay, A11y, Keyboard]}
-        className="hero-swiper"
+        modules={[Autoplay, A11y, Keyboard, EffectFade]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        className="hero-swiper h-full w-full overflow-hidden"
         loop
-        speed={700}
+        speed={800}
         keyboard={{ enabled: true }}
         autoplay={reduceMotion ? false : { delay: AUTOPLAY, disableOnInteraction: false, pauseOnMouseEnter: true }}
         onSwiper={(s) => (swiperRef.current = s)}
@@ -74,8 +77,8 @@ export default function Hero() {
         }}
       >
         {slides.map((s, i) => (
-          <SwiperSlide key={i}>
-            <div className="relative h-full w-full">
+          <SwiperSlide key={i} className="h-full w-full overflow-hidden">
+            <div className="relative h-full w-full overflow-hidden">
               <motion.img
                 key={`${i}-${index === i}`}
                 src={s.image}
@@ -113,22 +116,23 @@ export default function Hero() {
               className="pointer-events-auto max-w-[700px]"
             >
               <motion.div {...heroFade(0.04)} className="mb-5 flex items-center gap-3">
-                <span className="eyebrow text-white/85">Neelkhanth Transport Services</span>
+                <span className="eyebrow text-gold font-semibold">HQ: Dhankot, Gurugram (Delhi NCR)</span>
                 <span className="gold-line" />
               </motion.div>
               <motion.h1 {...heroFade(0.12)} className="h-hero text-white">
                 {slides[index].title}
               </motion.h1>
-              <motion.p {...heroFade(0.2)} className="mt-6 max-w-[520px] text-base leading-relaxed text-white/80 md:text-lg">
+              <motion.p {...heroFade(0.2)} className="mt-6 max-w-[540px] text-base leading-relaxed text-white/85 md:text-lg">
                 {slides[index].copy}
               </motion.p>
               <motion.div {...heroFade(0.28)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link to="/get-a-quote" className="btn btn-gold">
                   Request a Quote <ArrowRight size={18} />
                 </Link>
-                <Link to="/services" className="btn btn-outline-light">
-                  Explore Our Services
-                </Link>
+                <a href="tel:+917678176144" className="btn btn-outline-light flex items-center gap-2">
+                  <Phone size={17} className="text-gold" />
+                  <span>Call: +91 76781 76144</span>
+                </a>
               </motion.div>
             </motion.div>
           </AnimatePresence>

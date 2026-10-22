@@ -9,8 +9,18 @@ import { coverage } from "../data/routes";
 export default function RoutesPage() {
   return (
     <>
-      <Seo title="Routes & Coverage" description="Illustrative route coverage and corridor information for Neelkhanth Transport Services, with a route enquiry form." />
-      <PageHero title="Connecting Your Business to the Right Routes" intro="Regional and long-distance road corridors planned around your pickup and delivery points." image="/assets/hero/hero-1.jpg" position="70% center" crumbs={[{ label: "Routes" }]} />
+      <Seo
+        title="Routes & Coverage — Freight Corridors from Gurugram, Delhi & Haryana"
+        description="Daily freight corridors connecting Gurugram (Dhankot HQ), Delhi, New Delhi, Ghaziabad, and Haryana with Mumbai, Gujarat, Rajasthan, Punjab, and Pan India."
+        keywords="transport routes delhi, gurugram transport corridors, freight service ghaziabad, haryana truck routes, delhi mumbai transport corridor"
+      />
+      <PageHero
+        title="Direct Freight Corridors Across Delhi NCR & Pan India"
+        intro="Daily commercial vehicle dispatches from our Dhankot, Gurugram hub to key industrial clusters nationwide."
+        image="/assets/hero/hero-1.jpg"
+        position="70% center"
+        crumbs={[{ label: "Routes" }]}
+      />
 
       <section className="section bg-white">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:gap-20">

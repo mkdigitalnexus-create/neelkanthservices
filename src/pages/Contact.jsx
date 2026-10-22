@@ -7,43 +7,186 @@ import { siteConfig } from "../data/siteConfig";
 
 export default function Contact() {
   const c = siteConfig.contact;
-  const rows = [
-    c.phone && { icon: Phone, label: "Phone", value: c.phoneDisplay || c.phone, href: `tel:${c.phone}` },
-    c.whatsapp && { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: `https://wa.me/${c.whatsapp.replace(/\D/g, "")}` },
-    c.email && { icon: Mail, label: "Email", value: c.email, href: `mailto:${c.email}` },
-    c.address && { icon: MapPin, label: "Address", value: c.address },
-    c.hours && { icon: Clock, label: "Hours", value: c.hours },
-  ].filter(Boolean);
 
   return (
     <>
-      <Seo title="Contact Us" description="Get in touch with Neelkhanth Transport Services to discuss your transportation requirement." />
-      <PageHero title="Contact Us" intro="Discuss your transport requirement with our team." image="/assets/services/about.jpg" position="center 40%" crumbs={[{ label: "Contact" }]} />
+      <Seo
+        title="Contact Us — Transport Services in Gurugram, Delhi & Haryana"
+        description="Contact Neelkanth Transport Services in Dhankot, Gurugram. Call +91 76781 76144 or +91 98124 58224 for commercial freight booking across Delhi, Gurugram, Ghaziabad & Haryana."
+        keywords="contact neelkanth transport, transport company gurugram contact, dhankot transport office, transport number delhi, freight transport haryana phone"
+      />
+      <PageHero
+        title="Contact Us"
+        intro="Reach out to our Gurugram dispatch office to discuss your cargo movement across Delhi NCR, Haryana and Pan-India."
+        image="/assets/services/about.jpg"
+        position="center 12%"
+        crumbs={[{ label: "Contact" }]}
+      />
 
       <section className="section bg-white">
-        <div className="container-x grid gap-12 lg:grid-cols-[40fr_60fr] lg:gap-20">
+        <div className="container-x grid gap-12 lg:grid-cols-[42fr_58fr] lg:gap-16">
           <div>
-            <div className="mb-4 flex items-center gap-3"><span className="gold-line" /><span className="eyebrow text-blue">Reach us</span></div>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="gold-line" />
+              <span className="eyebrow text-blue">Head Office & Dispatch</span>
+            </div>
             <h2 className="h-section text-navy">Let's Talk About Your Cargo.</h2>
-            <p className="lead mt-5">Send a message using the form or reach us through the channels below.</p>
+            <p className="lead mt-4">
+              Need reliable transport services in Delhi, Gurugram, New Delhi, Ghaziabad, or Haryana? Speak directly with our dispatch team.
+            </p>
 
-            <ul className="mt-8 divide-y divide-line border-y border-line">
-              {rows.map(({ icon: Icon, label, value, href }) => (
-                <li key={label} className="flex items-start gap-4 py-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-blue text-blue"><Icon size={18} /></span>
-                  <div>
-                    <p className="eyebrow text-muted">{label}</p>
-                    {href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="mt-1 block font-heading font-bold text-navy hover:text-blue">{value}</a> : <p className="mt-1 font-heading font-bold text-navy">{value}</p>}
+            {/* Direct Contact Cards */}
+            <div className="mt-8 space-y-4">
+              {/* Primary Phone */}
+              <div className="rounded-lg border-2 border-blue/20 bg-blue/5 p-4 transition-colors hover:border-blue">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue text-white shadow-sm">
+                    <Phone size={20} />
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="text-xs font-bold uppercase tracking-wider text-blue">Main Contact Number</p>
+                      <span className="rounded bg-gold/20 px-2 py-0.5 text-[11px] font-bold text-navy">Primary</span>
+                    </div>
+                    <a
+                      href={`tel:${c.phone}`}
+                      className="mt-1 block font-heading text-xl font-bold text-navy hover:text-blue"
+                    >
+                      {c.phoneDisplay}
+                    </a>
+                    <p className="text-xs text-muted">Available 24/7 for booking & urgent dispatch</p>
                   </div>
-                </li>
-              ))}
-              {rows.length <= 1 && (
-                <li className="py-4 text-sm leading-relaxed text-muted">Phone, email and address will be published here once confirmed by the business. In the meantime, use the form or the quote page.</li>
-              )}
-            </ul>
-            <Link to="/get-a-quote" className="btn btn-navy btn-sm mt-8">Request a Quote <ArrowRight size={16} /></Link>
+                </div>
+              </div>
+
+              {/* Secondary Phone */}
+              <div className="rounded-lg border border-line bg-surface p-4 transition-colors hover:border-blue/40">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy text-white shadow-sm">
+                    <Phone size={20} />
+                  </span>
+                  <div className="flex-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">Second Number</p>
+                    <a
+                      href={`tel:${c.phoneSecondary}`}
+                      className="mt-1 block font-heading text-lg font-bold text-navy hover:text-blue"
+                    >
+                      {c.phoneSecondaryDisplay}
+                    </a>
+                    <p className="text-xs text-muted">Alternate fleet coordination & support</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="rounded-lg border border-emerald-500/30 bg-emerald-50/50 p-4 transition-colors hover:border-emerald-500">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm">
+                    <MessageCircle size={20} />
+                  </span>
+                  <div className="flex-1">
+                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Instant WhatsApp Chat</p>
+                    <a
+                      href={`https://wa.me/${c.whatsapp}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block font-heading text-lg font-bold text-emerald-900 hover:text-emerald-700"
+                    >
+                      Chat on WhatsApp (+91 76781 76144)
+                    </a>
+                    <p className="text-xs text-muted">Quick rates, vehicle photos, and live availability</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Office Address */}
+              <div className="rounded-lg border border-line bg-surface p-4">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-surface-blue text-blue">
+                    <MapPin size={20} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">Office & Yard Address</p>
+                    <p className="mt-1 font-heading text-sm font-semibold text-navy leading-snug">
+                      {c.address}
+                    </p>
+                    <p className="mt-1 text-xs text-blue font-medium">Landmark: {c.landmark}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Operating Hours */}
+              <div className="rounded-lg border border-line bg-surface p-4">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-surface-blue text-blue">
+                    <Clock size={20} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">Operating Hours</p>
+                    <p className="mt-1 font-heading text-sm font-semibold text-navy">{c.hours}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/get-a-quote" className="btn btn-navy btn-sm">
+                Request a Quote <ArrowRight size={16} />
+              </Link>
+              <a
+                href={`tel:${c.phone}`}
+                className="btn btn-gold btn-sm"
+              >
+                Call Main: {c.phoneDisplay}
+              </a>
+            </div>
           </div>
-          <ContactForm />
+
+          <div>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Location Section */}
+      <section className="section bg-surface pt-0">
+        <div className="container-x">
+          <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <div className="mb-2 flex items-center gap-3">
+                <span className="gold-line" />
+                <span className="eyebrow text-blue">Find Us on Map</span>
+              </div>
+              <h2 className="font-heading text-2xl font-bold text-navy">
+                Visit Our Office in Dhankot, Gurugram
+              </h2>
+              <p className="mt-1 text-sm text-muted">
+                Strategically positioned in Dhankot Chowk (opposite Zepto), connecting rapidly to Dwarka Expressway, KMP, NH-48 and Delhi NCR.
+              </p>
+            </div>
+            <a
+              href={`https://maps.google.com/?q=${c.geo.latitude},${c.geo.longitude}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-outline btn-sm shrink-0"
+            >
+              Open in Google Maps <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-line shadow-md bg-white">
+            <iframe
+              src={c.mapEmbed}
+              title="Neelkanth Transport Services Location Map"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-[420px] md:h-[480px]"
+            />
+          </div>
         </div>
       </section>
     </>

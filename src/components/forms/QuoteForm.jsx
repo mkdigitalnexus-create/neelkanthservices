@@ -50,8 +50,43 @@ export default function QuoteForm({ prefill }) {
 
       <fieldset className="mt-10 grid gap-5 sm:grid-cols-2">
         <legend className="mb-5 font-heading text-lg font-bold text-navy">Transport requirement</legend>
-        <Field label="Pickup City" name="pickupCity" value={f.values.pickupCity} onChange={f.onChange} onBlur={f.onBlur} error={f.errors.pickupCity} />
-        <Field label="Delivery City" name="deliveryCity" value={f.values.deliveryCity} onChange={f.onChange} onBlur={f.onBlur} error={f.errors.deliveryCity} />
+        <Field
+          label="Pickup City"
+          name="pickupCity"
+          placeholder="e.g. Gurugram / Dhankot"
+          list="qf-pickup-cities"
+          value={f.values.pickupCity}
+          onChange={f.onChange}
+          onBlur={f.onBlur}
+          error={f.errors.pickupCity}
+        />
+        <datalist id="qf-pickup-cities">
+          <option value="Gurugram (Dhankot HQ)" />
+          <option value="Delhi NCR" />
+          <option value="New Delhi" />
+          <option value="Ghaziabad" />
+          <option value="Manesar" />
+          <option value="Faridabad" />
+        </datalist>
+
+        <Field
+          label="Delivery City"
+          name="deliveryCity"
+          placeholder="e.g. Delhi / Ghaziabad"
+          list="qf-delivery-cities"
+          value={f.values.deliveryCity}
+          onChange={f.onChange}
+          onBlur={f.onBlur}
+          error={f.errors.deliveryCity}
+        />
+        <datalist id="qf-delivery-cities">
+          <option value="Delhi" />
+          <option value="New Delhi" />
+          <option value="Ghaziabad" />
+          <option value="Gurugram" />
+          <option value="Haryana (Faridabad/Panipat)" />
+          <option value="Mumbai / JNPT" />
+        </datalist>
         <Field label="Cargo Type" name="cargoType" as="select" value={f.values.cargoType} onChange={f.onChange} onBlur={f.onBlur} error={f.errors.cargoType}>
           <option value="">Select cargo type</option>
           {cargoTypes.map((c) => <option key={c}>{c}</option>)}

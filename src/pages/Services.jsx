@@ -13,8 +13,18 @@ export default function Services() {
 
   return (
     <>
-      <Seo title="Transportation Services" description="Full truck load, part load, container, trailer and industrial cargo transportation services for businesses." />
-      <PageHero title="Transportation Services" intro="Transport options for your cargo, vehicle requirements and business needs." image="/assets/hero/hero-3.jpg" position="65% center" crumbs={[{ label: "Services" }]} />
+      <Seo
+        title="Commercial Transport Services — Gurugram, Delhi, Ghaziabad & Haryana"
+        description="Comprehensive road transport services: Full Truckload (FTL), Part Truckload (PTL), container trailers, open-body trucks, and heavy industrial freight across Delhi NCR and India."
+        keywords="transport services gurugram, full truckload delhi, container transport ghaziabad, commercial freight haryana, trailer transport new delhi"
+      />
+      <PageHero
+        title="Commercial Road Transportation Services"
+        intro="Full truckloads (FTL), container freight, trailers, and open-body transport dispatched from our Gurugram hub to destinations across India."
+        image="/assets/hero/hero-3.jpg"
+        position="65% center"
+        crumbs={[{ label: "Services" }]}
+      />
 
       <section className="section bg-white">
         <div className="container-x">

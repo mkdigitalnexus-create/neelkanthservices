@@ -131,6 +131,8 @@ textarea.field { height: auto; padding-block: 12px; min-height: 120px; resize: v
 
 /* Swiper */
 .hero-swiper, .hero-swiper .swiper-wrapper, .hero-swiper .swiper-slide { height: 100%; }
+.hero-swiper { overflow: hidden !important; }
+.hero-swiper .swiper-slide { overflow: hidden !important; position: relative; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
