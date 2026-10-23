@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ArrowRight, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, MapPin, Mail } from "lucide-react";
 import { siteConfig } from "../../data/siteConfig";
 import Logo from "../common/Logo";
+import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -65,10 +66,18 @@ export default function Header() {
               href={`https://wa.me/${c.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1 font-semibold text-emerald-400 hover:text-emerald-300"
+              className="flex items-center gap-1.5 font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              <MessageCircle size={12} />
+              <WhatsAppIcon size={14} />
               <span>WhatsApp</span>
+            </a>
+            <span className="text-white/30 hidden xl:inline">•</span>
+            <a
+              href={`mailto:${c.email}`}
+              className="hidden xl:flex items-center gap-1.5 font-medium text-white/80 hover:text-gold transition-colors"
+            >
+              <Mail size={12} className="text-gold" />
+              <span>{c.email}</span>
             </a>
           </div>
         </div>
@@ -223,12 +232,24 @@ export default function Header() {
                     rel="noreferrer"
                     className="flex items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-50/60 p-3 text-sm font-bold text-emerald-900"
                   >
-                    <span className="flex h-8 w-8 items-center justify-center rounded-md bg-emerald-600 text-white">
-                      <MessageCircle size={14} />
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#25D366] text-white shadow-sm">
+                      <WhatsAppIcon size={18} />
                     </span>
                     <div>
                       <span className="block text-[11px] text-emerald-700 uppercase">Instant Chat</span>
                       <span>WhatsApp Support</span>
+                    </div>
+                  </a>
+                  <a
+                    href={`mailto:${c.email}`}
+                    className="flex items-center gap-3 rounded-lg border border-line bg-surface p-3 text-sm font-semibold text-navy hover:border-blue/40"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue text-white shadow-sm">
+                      <Mail size={16} />
+                    </span>
+                    <div className="min-w-0">
+                      <span className="block text-[11px] text-muted uppercase">Email Enquiries</span>
+                      <span className="text-xs font-bold truncate block">{c.email}</span>
                     </div>
                   </a>
                   <div className="pt-2 text-[11px] text-muted">

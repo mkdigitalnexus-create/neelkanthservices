@@ -6,11 +6,11 @@ export const validators = {
   email: (v) => (!v ? "" : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Enter a valid email address."),
 };
 
-export function useForm(initial, rules) {
+export function useForm(initial, rules, onSubmitAsync) {
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle"); // idle | submitting | submitted | error
 
   const validateField = (k, v) => {
     const fns = rules[k] || [];
@@ -44,9 +44,17 @@ export function useForm(initial, rules) {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateAll()) {
+      if (onSubmitAsync) {
+        setStatus("submitting");
+        try {
+          await onSubmitAsync(values);
+        } catch (err) {
+          console.error("Submission failed:", err);
+        }
+      }
       setStatus("submitted");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -63,5 +71,5 @@ export function useForm(initial, rules) {
     setStatus("idle");
   };
 
-  return { values, errors, status, onChange, onBlur, handleSubmit, reset, setValues };
+  return { values, errors, status, onChange, onBlur, handleSubmit, reset, setValues, setStatus };
 }

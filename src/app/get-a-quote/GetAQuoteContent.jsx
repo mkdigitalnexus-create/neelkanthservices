@@ -3,9 +3,10 @@
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Phone, ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { Phone, ArrowRight, MapPin, Mail } from "lucide-react";
 import PageHero from "../../components/common/PageHero";
 import QuoteForm from "../../components/forms/QuoteForm";
+import WhatsAppIcon from "../../components/common/WhatsAppIcon";
 import { siteConfig } from "../../data/siteConfig";
 
 function QuoteFormContainer() {
@@ -87,7 +88,9 @@ export default function GetAQuoteContent() {
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <MessageCircle size={18} className="shrink-0 text-emerald-400 mt-0.5" />
+                  <span className="shrink-0 mt-0.5">
+                    <WhatsAppIcon size={18} />
+                  </span>
                   <div>
                     <span className="text-[11px] text-emerald-400 uppercase font-semibold block">WhatsApp:</span>
                     <a
@@ -97,6 +100,18 @@ export default function GetAQuoteContent() {
                       className="font-medium text-emerald-400 hover:text-emerald-300"
                     >
                       Chat on WhatsApp (+91 76781 76144)
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <Mail size={18} className="shrink-0 text-gold mt-0.5" />
+                  <div className="min-w-0">
+                    <span className="text-[11px] text-white/60 uppercase block">Official Email:</span>
+                    <a
+                      href={`mailto:${c.email}`}
+                      className="text-xs font-semibold text-white/90 hover:text-gold truncate block"
+                    >
+                      {c.email}
                     </a>
                   </div>
                 </li>

@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import BackToTop from "../components/common/BackToTop";
+import FloatingWhatsApp from "../components/common/FloatingWhatsApp";
 import { siteConfig } from "../data/siteConfig";
 
 export const metadata = {
@@ -188,6 +189,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingWhatsApp />
         <BackToTop />
       </body>
     </html>

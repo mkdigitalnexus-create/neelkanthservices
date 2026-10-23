@@ -12,7 +12,13 @@ export default function QuoteBar() {
 
   const submit = (e) => {
     e.preventDefault();
-    router.push("/get-a-quote");
+    const params = new URLSearchParams();
+    if (form.pickupCity) params.set("from", form.pickupCity);
+    if (form.deliveryCity) params.set("to", form.deliveryCity);
+    if (form.cargoType) params.set("cargo", form.cargoType);
+    if (form.vehicle) params.set("vehicle", form.vehicle);
+    const qs = params.toString();
+    router.push(qs ? `/get-a-quote?${qs}` : "/get-a-quote");
   };
 
   return (

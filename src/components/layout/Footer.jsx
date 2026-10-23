@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Phone, MapPin, Clock, MessageCircle, ShieldCheck, ArrowRight, Truck } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, ShieldCheck, ArrowRight, Truck } from "lucide-react";
 import { siteConfig } from "../../data/siteConfig";
 import { publishedServices } from "../../data/services";
+import WhatsAppIcon from "../common/WhatsAppIcon";
 
 export default function Footer() {
   const c = siteConfig.contact;
@@ -62,7 +63,7 @@ export default function Footer() {
               rel="noreferrer"
               className="flex items-center justify-center gap-2.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3 font-bold text-emerald-400 transition hover:bg-emerald-500/20 text-sm"
             >
-              <MessageCircle size={18} />
+              <WhatsAppIcon size={20} />
               <span>WhatsApp Instant Rates</span>
             </a>
           </div>
@@ -181,6 +182,19 @@ export default function Footer() {
                 <div>
                   <span className="text-xs text-white/50 block">Operating Hours:</span>
                   <p className="text-xs text-white/80 leading-snug">{c.hours}</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Mail size={18} className="mt-0.5 shrink-0 text-gold" />
+                <div className="min-w-0">
+                  <span className="text-xs text-white/50 block">Official Dispatch Email:</span>
+                  <a
+                    href={`mailto:${c.email}`}
+                    className="text-xs font-semibold text-white hover:text-gold transition truncate block mt-0.5"
+                  >
+                    {c.email}
+                  </a>
                 </div>
               </div>
             </div>

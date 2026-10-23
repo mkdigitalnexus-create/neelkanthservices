@@ -23,7 +23,7 @@ export const siteConfig = {
     phoneSecondary: "+919812458224",
     phoneSecondaryDisplay: "+91 98124 58224",
     whatsapp: "917678176144",
-    email: "info@neelkanthtransport.com",
+    email: "neelkanthtransportationservice@gmail.com",
     address: "4th Floor, Ground Floor, Chowk, opposite Zepto, Dhankot, Gurugram, Haryana 122505",
     landmark: "Opposite Zepto, Dhankot Chowk",
     city: "Gurugram",

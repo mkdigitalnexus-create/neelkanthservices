@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import PageHero from "../../components/common/PageHero";
 import ContactForm from "../../components/forms/ContactForm";
+import WhatsAppIcon from "../../components/common/WhatsAppIcon";
 import { siteConfig } from "../../data/siteConfig";
 
 export default function ContactContent() {
@@ -77,8 +78,8 @@ export default function ContactContent() {
               {/* WhatsApp */}
               <div className="rounded-lg border border-emerald-500/30 bg-emerald-50/50 p-4 transition-colors hover:border-emerald-500">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm">
-                    <MessageCircle size={20} />
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white shadow-sm">
+                    <WhatsAppIcon size={24} />
                   </span>
                   <div className="flex-1">
                     <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Instant WhatsApp Chat</p>
@@ -91,6 +92,25 @@ export default function ContactContent() {
                       Chat on WhatsApp (+91 76781 76144)
                     </a>
                     <p className="text-xs text-muted">Quick rates, vehicle photos, and live availability</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Email */}
+              <div className="rounded-lg border border-line bg-surface p-4 transition-colors hover:border-blue/40">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue text-white shadow-sm">
+                    <Mail size={20} />
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">Official Dispatch Email</p>
+                    <a
+                      href={`mailto:${c.email}`}
+                      className="mt-1 block font-heading text-base font-bold text-navy hover:text-blue break-all"
+                    >
+                      {c.email}
+                    </a>
+                    <p className="text-xs text-muted">For rate inquiries, formal RFQs, and enterprise freight contracts</p>
                   </div>
                 </div>
               </div>
