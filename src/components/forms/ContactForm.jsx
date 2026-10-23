@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useForm, validators as v } from "./useForm";
 import Field from "./Field";
-import DemoNotice from "../common/DemoNotice";
 import SubmittedNotice from "./SubmittedNotice";
 import { siteConfig } from "../../data/siteConfig";
 
@@ -141,7 +140,6 @@ export default function ContactForm({
           disabled={isSubmitting}
         />
       </div>
-      <DemoNotice className="mt-6" />
       {f.status === "error" && (
         <p className="mt-4 text-sm font-medium text-[#c9372c]" role="alert">
           Please correct the highlighted fields.
