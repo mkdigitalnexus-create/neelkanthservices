@@ -36,47 +36,57 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white">
       {/* Top Contact & Location Bar for High-Conversion & Local SEO */}
-      <div className="hidden border-b border-white/10 bg-navy text-white/80 py-1.5 text-xs md:block">
-        <div className="container-x flex items-center justify-between">
-          <div className="flex items-center gap-4 text-[11px] lg:text-xs">
-            <span className="flex items-center gap-1.5 font-medium text-white/90">
-              <MapPin size={12} className="text-gold" />
-              <span>Dhankot, Gurugram (Delhi NCR, Haryana)</span>
+      <div className="hidden border-b border-white/10 bg-navy text-white/80 py-2 text-xs md:block">
+        <div className="container-x flex items-center justify-between gap-4 overflow-hidden">
+          {/* Left: Location & Corridor footprint */}
+          <div className="flex items-center gap-2.5 lg:gap-3 text-[11px] lg:text-xs whitespace-nowrap min-w-0">
+            <span className="flex items-center gap-1.5 font-semibold text-white/95 shrink-0">
+              <MapPin size={12} className="text-gold shrink-0" />
+              <span>Dhankot, Gurugram (Delhi NCR)</span>
             </span>
-            <span className="text-white/30">•</span>
-            <span className="text-white/70">Daily Dispatch: Delhi, Gurugram, Ghaziabad, Haryana & Pan India</span>
+            <span className="text-white/30 hidden lg:inline">•</span>
+            <span className="text-white/70 hidden lg:inline truncate">
+              Daily Fleet Dispatch: Delhi NCR, Haryana, Gujarat & Pan India
+            </span>
           </div>
-          <div className="flex items-center gap-4 text-[11px] lg:text-xs">
+
+          {/* Right: Direct Contacts (Phone, WhatsApp, Email) */}
+          <div className="flex items-center gap-3 lg:gap-3.5 text-[11px] lg:text-xs whitespace-nowrap shrink-0">
             <a
               href={`tel:${c.phone}`}
               className="flex items-center gap-1.5 font-bold text-white hover:text-gold transition-colors"
+              title="Call primary dispatch hotline"
             >
-              <Phone size={12} className="text-gold" />
-              <span>Call Main: {c.phoneDisplay}</span>
+              <Phone size={12} className="text-gold shrink-0" />
+              <span>{c.phoneDisplay}</span>
             </a>
-            <span className="text-white/30">/</span>
+
+            <span className="text-white/30 hidden 2xl:inline">/</span>
             <a
               href={`tel:${c.phoneSecondary}`}
-              className="font-medium text-white/80 hover:text-gold transition-colors"
+              className="hidden 2xl:inline font-medium text-white/80 hover:text-gold transition-colors"
             >
               <span>{c.phoneSecondaryDisplay}</span>
             </a>
+
             <span className="text-white/30">•</span>
             <a
               href={`https://wa.me/${c.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+              className="flex items-center gap-1.5 font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              <WhatsAppIcon size={14} />
+              <WhatsAppIcon size={13} color="#25D366" />
               <span>WhatsApp</span>
             </a>
+
             <span className="text-white/30 hidden xl:inline">•</span>
             <a
               href={`mailto:${c.email}`}
-              className="hidden xl:flex items-center gap-1.5 font-medium text-white/80 hover:text-gold transition-colors"
+              className="hidden xl:flex items-center gap-1.5 font-medium text-white/85 hover:text-gold transition-colors"
+              title={`Send email to ${c.email}`}
             >
-              <Mail size={12} className="text-gold" />
+              <Mail size={12} className="text-gold shrink-0" />
               <span>{c.email}</span>
             </a>
           </div>
