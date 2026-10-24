@@ -42,7 +42,12 @@ export const metadata = {
     email: true,
   },
   icons: {
-    icon: "/assets/brand/favicon.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/assets/brand/logo.jpeg" },
+      { url: "/assets/brand/logo-transparent.png" },
+    ],
+    shortcut: "/assets/brand/logo.jpeg",
     apple: "/assets/brand/logo.jpeg",
   },
   openGraph: {
@@ -211,6 +216,9 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/assets/brand/logo.jpeg" />
+        <link rel="shortcut icon" href="/assets/brand/logo.jpeg" />
+        <link rel="apple-touch-icon" href="/assets/brand/logo.jpeg" />
         <meta name="geo.region" content="IN-HR" />
         <meta name="geo.placename" content="Gurugram, Dhankot, Haryana, Delhi NCR" />
         <meta name="geo.position" content={`${c.geo.latitude};${c.geo.longitude}`} />
