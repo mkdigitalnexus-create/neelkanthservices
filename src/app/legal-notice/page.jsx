@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Legal terms, commercial carrier disclosures, and operating terms for Neelkanth Transport Services, Gurugram, Haryana.",
   alternates: {
-    canonical: "https://www.neelkanthtransport.com/legal-notice",
+    canonical: `${siteConfig.siteUrl}/legal-notice`,
   },
   robots: {
     index: true,

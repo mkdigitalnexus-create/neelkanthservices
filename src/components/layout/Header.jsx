@@ -46,7 +46,7 @@ export default function Header() {
             </span>
             <span className="text-white/30 hidden lg:inline">•</span>
             <span className="text-white/70 hidden lg:inline truncate">
-              Daily Fleet Dispatch: Delhi NCR, Haryana, Gujarat & Pan India
+              Daily Fleet Dispatch: Delhi NCR, Haryana, Punjab & Pan-India
             </span>
           </div>
 

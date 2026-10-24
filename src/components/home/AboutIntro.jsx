@@ -24,13 +24,13 @@ export default function AboutIntro() {
             <span className="eyebrow text-blue">About Neelkanth Transport</span>
           </motion.div>
           <motion.h2 variants={fadeUp} className="h-section text-navy">
-            Top Rated Commercial Transport in Delhi, Gurugram & Haryana.
+            Top-Rated Commercial Transport in Delhi, Haryana & Punjab.
           </motion.h2>
           <motion.p variants={fadeUp} className="lead mt-6">
-            Headquartered at Dhankot, Gurugram (opposite Zepto), Neelkanth Transport Services is the trusted road logistics partner for industrial enterprises, manufacturers, and corporate supply chains across Delhi NCR, Haryana, Ghaziabad, and Pan-India.
+            Headquartered at Dhankot, Gurugram (opposite Zepto), Neelkanth Transport Services is the trusted road logistics partner for industrial enterprises, manufacturers, and corporate supply chains across Delhi NCR, Haryana, Punjab (Ludhiana, Chandigarh), and Pan-India.
           </motion.p>
           <motion.p variants={fadeUp} className="lead mt-4">
-            From daily full truckloads (FTL) and open-body trailers to heavy container cargo, our fleet delivers guaranteed punctuality, competitive freight rates, and 24/7 dedicated dispatch coordination.
+            From daily full truckloads (FTL) and 32ft multi-axle containers to heavy trailer cargo, our fleet delivers guaranteed punctuality, competitive freight rates, and 24/7 dedicated dispatch coordination across North India's major highway corridors.
           </motion.p>
           <motion.ul variants={fadeUp} className="mt-7 space-y-3">
             {points.map((p) => (

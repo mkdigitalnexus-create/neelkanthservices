@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Privacy Policy for Neelkanth Transport Services. Learn how your enquiry information and cargo movement requests are handled.",
   alternates: {
-    canonical: "https://www.neelkanthtransport.com/privacy-policy",
+    canonical: `${siteConfig.siteUrl}/privacy-policy`,
   },
   robots: {
     index: true,

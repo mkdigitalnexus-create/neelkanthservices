@@ -16,7 +16,7 @@ export default function RouteNetwork() {
             <span className="gold-line" />
             <span className="eyebrow text-blue">Route network</span>
           </motion.div>
-          <motion.h2 variants={fadeUp} className="h-section text-navy">Connecting Your Business to the Right Routes.</motion.h2>
+          <motion.h2 variants={fadeUp} className="h-section text-navy">Connecting Delhi NCR, Haryana & Punjab to National Corridors.</motion.h2>
           <motion.p variants={fadeUp} className="lead mt-6">
             Whether your cargo travels within a region or across the country, we plan each movement around the corridors that make sense for your pickup and delivery points.
           </motion.p>

@@ -1,37 +1,42 @@
 export const faqs = [
   {
-    q: "What types of transportation do you provide?",
-    a: "We focus on commercial and industrial road transport, including full truck load, part truck load, container, trailer and open or closed-body truck transportation. Household shifting is not part of our offering.",
-    group: "Services",
-  },
-  {
-    q: "How do I know which vehicle my cargo needs?",
-    a: "Share your cargo type, approximate dimensions, weight and handling requirements. Our team will discuss suitable vehicle categories with you before confirming anything.",
-    group: "Vehicles",
-  },
-  {
-    q: "Which pickup and delivery locations do you cover?",
-    a: "Coverage depends on the route and vehicle availability. Send us your pickup and delivery cities and we will confirm whether we can coordinate the movement.",
+    q: "Do you provide daily commercial transport between Delhi NCR, Haryana, and Punjab?",
+    a: "Yes. We operate high-frequency daily freight corridors connecting Delhi NCR (Dhankot Gurugram, Okhla, SGTN), Haryana (Manesar, Faridabad, Panipat, Sonipat), and Punjab (Ludhiana, Chandigarh, Jalandhar, Amritsar, Mandi Gobindgarh). Both outward and return loads are dispatched daily.",
     group: "Routes",
   },
   {
-    q: "How do I request a quote?",
-    a: "Use the Request a Quote form on this website or contact us directly. Provide your route, cargo details and preferred timing so we can respond with relevant information.",
+    q: "How fast is transit time from Delhi / Gurugram to Ludhiana, Chandigarh, or Amritsar?",
+    a: "Our express overnight highway transit takes approximately 5 to 7 hours to Chandigarh/Mohali and 7 to 9 hours to Ludhiana via NH-44 (GT Road). Consignments loaded in the evening are delivered directly to consignee facilities the following morning.",
+    group: "Routes",
+  },
+  {
+    q: "What types of commercial vehicles are available in your fleet?",
+    a: "Our fleet includes 32ft single and multi-axle (SXL/MXL) containers, 20ft/24ft closed containers, 14ft to 22ft Eicher/Tata trucks, 10-wheeler and 12-wheeler open-body trucks, and 40ft flatbed trailers for heavy or oversized project cargo.",
+    group: "Vehicles",
+  },
+  {
+    q: "Can you provide immediate vehicle placement in Gurugram, Manesar, or Delhi?",
+    a: "Yes. Headquartered right at Dhankot Chowk in Gurugram, we can arrange confirmed truck placement across Gurugram, IMT Manesar, and Delhi NCR industrial zones within 60 to 90 minutes of order confirmation.",
+    group: "Services",
+  },
+  {
+    q: "How do I request a rate quote or book a truck?",
+    a: "You can submit an inquiry via our online quote form, call our 24/7 central dispatch desk directly at +91 76781 76144 or +91 98124 58224, or send a WhatsApp message. We respond promptly with verified vehicle options and competitive freight tariffs.",
     group: "Quotes",
   },
   {
-    q: "What cargo information should I prepare?",
-    a: "A description of the goods, packaging type, approximate weight and volume, loading and unloading arrangements, and any special handling instructions.",
+    q: "Do you comply with GST E-Way Bill regulations and transit documentation?",
+    a: "Yes. All consignments are transported under official Consignment Notes (Bilty / L.R.) with 100% GST and E-Way Bill compliance. Vehicle registration numbers and driver details are verified before dispatch.",
+    group: "Services",
+  },
+  {
+    q: "What cargo information should I prepare for a quote?",
+    a: "Please share the pickup and delivery addresses, cargo description (e.g., auto parts, textile yarn, machinery), approximate weight and dimensions, preferred truck type, and required loading date.",
     group: "Cargo",
   },
   {
     q: "Do you transport oversized or heavy industrial cargo?",
-    a: "Trailer transportation may be suitable for long, heavy or project cargo. Share the dimensions and weight in your enquiry so we can review the requirement.",
+    a: "Yes. Our multi-axle heavy trailers and open-body trucks are equipped to transport structural steel, transformers, heavy machinery, and industrial project consignments across North India and pan-India.",
     group: "Cargo",
-  },
-  {
-    q: "Is this website connected to a live booking system?",
-    a: "No. The forms on this site are for enquiry purposes in this demonstration and are not connected to a live submission or booking service.",
-    group: "Quotes",
   },
 ];

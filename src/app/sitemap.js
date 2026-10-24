@@ -1,5 +1,6 @@
 import { publishedServices } from "../data/services";
 import { siteConfig } from "../data/siteConfig";
+import { regionalCorridors } from "../data/routes";
 
 export default function sitemap() {
   const baseUrl = siteConfig.siteUrl;
@@ -34,7 +35,7 @@ export default function sitemap() {
       url: `${baseUrl}/routes`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/industries`,
@@ -58,7 +59,7 @@ export default function sitemap() {
       url: `${baseUrl}/faq`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.75,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/privacy-policy`,
@@ -81,5 +82,12 @@ export default function sitemap() {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const corridorRoutes = regionalCorridors.map((corridor) => ({
+    url: `${baseUrl}/routes/${corridor.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  return [...staticRoutes, ...corridorRoutes, ...serviceRoutes];
 }

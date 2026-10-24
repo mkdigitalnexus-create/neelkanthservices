@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { publishedServices, getService } from "../../../data/services";
+import { siteConfig } from "../../../data/siteConfig";
 import ServiceDetailContent from "./ServiceDetailContent";
 
 export async function generateStaticParams() {
@@ -18,8 +19,8 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const title = `${service.title} in Delhi, Gurugram & Haryana`;
-  const description = `${service.short} Reliable commercial road freight across Delhi NCR, Gurugram, New Delhi, Ghaziabad, Haryana and pan-India. Call +91 76781 76144.`;
+  const title = `${service.title} in Delhi NCR, Haryana & Punjab`;
+  const description = `${service.short} Reliable commercial road freight across Delhi NCR, Haryana, Punjab (Ludhiana, Chandigarh), and Pan-India. Call +91 76781 76144.`;
 
   return {
     title,
@@ -29,19 +30,20 @@ export async function generateMetadata({ params }) {
       `${service.title} Delhi`,
       `${service.title} Gurugram`,
       `${service.title} Haryana`,
-      `${service.title} Ghaziabad`,
+      `${service.title} Punjab`,
+      `${service.title} Ludhiana`,
       "Neelkanth Transport Services",
       "transport company near me",
       "goods transport services Delhi NCR",
       "Dhankot Gurugram logistics",
     ],
     alternates: {
-      canonical: `https://www.neelkanthtransport.com/services/${slug}`,
+      canonical: `${siteConfig.siteUrl}/services/${slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://www.neelkanthtransport.com/services/${slug}`,
+      url: `${siteConfig.siteUrl}/services/${slug}`,
       images: [
         {
           url: service.image || "/assets/hero/hero-1.jpg",
@@ -84,9 +86,15 @@ export default async function ServiceDetailPage({ params }) {
     areaServed: [
       { "@type": "City", name: "Delhi" },
       { "@type": "City", name: "Gurugram" },
-      { "@type": "City", name: "New Delhi" },
-      { "@type": "City", name: "Ghaziabad" },
+      { "@type": "City", name: "Faridabad" },
+      { "@type": "City", name: "Panipat" },
+      { "@type": "City", name: "Sonipat" },
+      { "@type": "City", name: "Ludhiana" },
+      { "@type": "City", name: "Chandigarh" },
+      { "@type": "City", name: "Jalandhar" },
+      { "@type": "City", name: "Amritsar" },
       { "@type": "State", name: "Haryana" },
+      { "@type": "State", name: "Punjab" },
       { "@type": "Country", name: "India" },
     ],
     offers: {

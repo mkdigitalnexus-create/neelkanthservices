@@ -8,24 +8,30 @@ import { siteConfig } from "../data/siteConfig";
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Neelkanth Transport Services | Best Transport in Delhi, Gurugram & Haryana",
+    default: "Neelkanth Transport Services | #1 Commercial Transport in Delhi NCR, Haryana & Punjab",
     template: "%s | Neelkanth Transport Services",
   },
   description:
-    "Top-rated commercial logistics and road freight transport company headquartered in Dhankot, Gurugram (Delhi NCR). Fast, dependable Full Truckload (FTL), Container, and Trailer services connecting Delhi, New Delhi, Ghaziabad, Haryana, and Pan-India.",
+    "Top-rated commercial logistics and road freight company headquartered in Dhankot, Gurugram. Fast, dependable Full Truckload (FTL), Container, and Trailer transport connecting Delhi NCR, Haryana, Punjab (Ludhiana, Chandigarh), and Pan-India. Call +91 76781 76144.",
   keywords: [
-    "transport services in gurugram",
-    "transport company in delhi",
+    "transport services in delhi",
     "best transport company in haryana",
-    "best transport services delhi ncr",
+    "transport services in punjab",
+    "transport company in gurugram",
+    "truck transport delhi to punjab",
+    "commercial transport services delhi ncr",
+    "delhi to haryana transport service",
     "truck transport service ghaziabad",
-    "commercial transport services new delhi",
     "full truckload transport gurugram",
-    "container transport delhi haryana",
+    "transport services ludhiana",
+    "goods transport chandigarh",
+    "truck transport sonipat panipat",
+    "container transport delhi punjab",
     "trailer transport services dhankot",
     "neelkanth transport services",
     "freight logistics company gurugram",
-    "all india permit truck transport"
+    "all india permit truck transport",
+    "goods transport agency delhi ncr"
   ],
   authors: [{ name: "Neelkanth Transport Services" }],
   creator: "Neelkanth Transport Services",
@@ -40,9 +46,9 @@ export const metadata = {
     apple: "/assets/brand/logo.jpeg",
   },
   openGraph: {
-    title: "Neelkanth Transport Services | Best Transport Company in Delhi, Gurugram & Haryana",
+    title: "Neelkanth Transport Services | #1 Transport in Delhi NCR, Haryana & Punjab",
     description:
-      "Top-rated commercial road freight partner headquartered in Dhankot, Gurugram. Fast, safe FTL, container, and trailer transport across Delhi NCR, Ghaziabad & Pan-India.",
+      "Top-rated commercial road freight partner headquartered in Dhankot, Gurugram. Fast, safe FTL, container, and trailer transport across Delhi NCR, Haryana, Punjab & Pan-India. Call +91 76781 76144.",
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
     images: [
@@ -58,8 +64,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Neelkanth Transport Services | Best Transport in Delhi NCR & Haryana",
-    description: "Daily commercial freight dispatch from Dhankot, Gurugram to Delhi, New Delhi, Ghaziabad, Haryana & Pan India.",
+    title: "Neelkanth Transport Services | #1 Transport in Delhi NCR, Haryana & Punjab",
+    description: "Daily commercial freight dispatch from Dhankot, Gurugram to Delhi NCR, Haryana, Punjab, and Pan India. Call +91 76781 76144.",
     images: ["/assets/hero/hero-1.jpg"],
   },
   robots: {
@@ -88,7 +94,7 @@ export default function RootLayout({ children }) {
         "@type": ["LocalBusiness", "LogisticsService"],
         "@id": `${siteConfig.siteUrl}/#business`,
         name: siteConfig.name,
-        alternateName: [siteConfig.shortName, "Neelkanth Logistics", "Neelkanth Transport Gurugram"],
+        alternateName: [siteConfig.shortName, "Neelkanth Logistics", "Neelkanth Transport Gurugram", "Neelkanth Road Carriers"],
         url: siteConfig.siteUrl,
         logo: `${siteConfig.siteUrl}/assets/brand/logo.jpeg`,
         image: `${siteConfig.siteUrl}/assets/hero/hero-1.jpg`,
@@ -121,6 +127,13 @@ export default function RootLayout({ children }) {
         },
         hasMap: c.mapEmbed,
         priceRange: "₹₹",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "218",
+          bestRating: "5",
+          worstRating: "1",
+        },
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -130,11 +143,25 @@ export default function RootLayout({ children }) {
           },
         ],
         areaServed: [
-          { "@type": "City", name: "Gurugram" },
           { "@type": "City", name: "Delhi" },
           { "@type": "City", name: "New Delhi" },
+          { "@type": "City", name: "Gurugram" },
+          { "@type": "City", name: "Faridabad" },
+          { "@type": "City", name: "Panipat" },
+          { "@type": "City", name: "Sonipat" },
+          { "@type": "City", name: "Ambala" },
+          { "@type": "City", name: "Karnal" },
+          { "@type": "City", name: "Rohtak" },
+          { "@type": "City", name: "Ludhiana" },
+          { "@type": "City", name: "Chandigarh" },
+          { "@type": "City", name: "Jalandhar" },
+          { "@type": "City", name: "Amritsar" },
+          { "@type": "City", name: "Bathinda" },
           { "@type": "City", name: "Ghaziabad" },
+          { "@type": "City", name: "Noida" },
           { "@type": "State", name: "Haryana" },
+          { "@type": "State", name: "Punjab" },
+          { "@type": "State", name: "Delhi" },
           { "@type": "Country", name: "India" },
         ],
         makesOffer: [
@@ -143,7 +170,7 @@ export default function RootLayout({ children }) {
             itemOffered: {
               "@type": "Service",
               name: "Full Truck Load (FTL) Transportation",
-              description: "Dedicated point-to-point commercial truck transport across Delhi NCR and India.",
+              description: "Dedicated point-to-point commercial truck transport across Delhi NCR, Haryana, Punjab, and India.",
             },
           },
           {
@@ -151,7 +178,15 @@ export default function RootLayout({ children }) {
             itemOffered: {
               "@type": "Service",
               name: "Container & Trailer Transportation",
-              description: "Safe, weather-protected container and heavy trailer movement for industrial goods.",
+              description: "Safe, weather-protected 32ft MXL containers and heavy trailer movement for industrial goods.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Delhi to Punjab Daily Highway Freight",
+              description: "Daily direct road transport connecting Delhi NCR and Haryana with Ludhiana, Chandigarh, Jalandhar, and Amritsar.",
             },
           },
           {

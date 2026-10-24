@@ -88,7 +88,7 @@ export default function Footer() {
               {siteConfig.tagline}
             </p>
             <p className="text-sm leading-relaxed text-white/70 max-w-sm">
-              Headquartered in Dhankot, Gurugram, Neelkanth Transport Services provides dependable full truckload (FTL), container, and heavy trailer freight movements across Delhi NCR, Haryana, and nationwide.
+              Headquartered in Dhankot, Gurugram, Neelkanth Transport Services provides dependable full truckload (FTL), 32ft container, and heavy trailer freight movements across Delhi NCR, Haryana, Punjab, and nationwide.
             </p>
             <div className="pt-2 flex flex-wrap gap-2 text-xs text-white/80">
               <span className="inline-flex items-center gap-1.5 rounded-md bg-white/5 px-2.5 py-1 border border-white/10">
@@ -224,9 +224,10 @@ export default function Footer() {
           <div className="flex flex-wrap gap-2 pt-1">
             {[
               "Dhankot (HQ)", "Gurugram", "Manesar Industrial Hub", "Delhi NCR",
-              "New Delhi", "Ghaziabad", "Sahibabad", "Faridabad",
-              "Sonipat", "Panipat", "Rewari & Bawal", "Dwarka Expressway",
-              "Mumbai & JNPT Port", "Ahmedabad & Gujarat", "Rajasthan (Jaipur)", "Pan India"
+              "New Delhi", "Ghaziabad & Noida", "Faridabad", "Sonipat", "Panipat Textile Hub",
+              "Ambala & Karnal", "Ludhiana (Focal Point)", "Chandigarh & Mohali",
+              "Jalandhar", "Amritsar", "Mandi Gobindgarh", "Rewari & Bawal",
+              "Dwarka Expressway", "Mumbai & JNPT Port", "Ahmedabad & Gujarat", "Rajasthan (Jaipur)", "Pan India"
             ].map((hub) => (
               <span key={hub} className="rounded-md bg-white/5 border border-white/10 px-2.5 py-1 text-white/80 hover:border-gold/40 transition">
                 {hub}

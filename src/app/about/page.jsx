@@ -1,26 +1,28 @@
 import AboutContent from "./AboutContent";
+import { siteConfig } from "../../data/siteConfig";
 
 export const metadata = {
-  title: "About Us — Best Transport Company in Gurugram, Delhi & Haryana",
+  title: "About Us — Best Transport Company in Delhi NCR, Haryana & Punjab",
   description:
-    "Neelkanth Transport Services, based in Dhankot, Gurugram (opposite Zepto), is the leading commercial transport provider across Delhi, New Delhi, Ghaziabad, Haryana, and Pan India.",
+    "Neelkanth Transport Services, headquartered in Dhankot, Gurugram, is the leading commercial transport provider across Delhi NCR, Haryana, Punjab (Ludhiana, Chandigarh), and Pan-India. Call +91 76781 76144.",
   keywords: [
     "about neelkanth transport",
     "transport company in gurugram",
-    "best logistics company haryana",
+    "best transport company haryana",
+    "goods transport services punjab",
     "commercial truck transport delhi ncr",
     "dhankot transport office",
     "transport services delhi",
-    "logistics firm ghaziabad"
+    "ludhiana truck logistics",
   ],
   alternates: {
-    canonical: "https://www.neelkanthtransport.com/about",
+    canonical: `${siteConfig.siteUrl}/about`,
   },
   openGraph: {
-    title: "About Us — Best Transport Company in Gurugram, Delhi & Haryana",
+    title: "About Us — Best Transport Company in Delhi NCR, Haryana & Punjab",
     description:
-      "Learn about Neelkanth Transport Services, headquartered in Dhankot, Gurugram. Dependable commercial logistics, container trailers, and FTL road transport across Delhi NCR and India.",
-    url: "https://www.neelkanthtransport.com/about",
+      "Learn about Neelkanth Transport Services, headquartered in Dhankot, Gurugram. Dependable commercial logistics, container trailers, and FTL road transport across Delhi NCR, Haryana, and Punjab.",
+    url: `${siteConfig.siteUrl}/about`,
     images: ["/assets/services/about.jpg"],
   },
 };

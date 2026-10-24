@@ -1,25 +1,27 @@
 import IndustriesContent from "./IndustriesContent";
+import { siteConfig } from "../../data/siteConfig";
 
 export const metadata = {
-  title: "Industries Served in Delhi, Gurugram & Haryana | Manufacturing, Auto, FMCG Transport",
+  title: "Industries Served in Delhi NCR, Haryana & Punjab | Manufacturing, Auto, Textile & FMCG Transport",
   description:
-    "Tailored logistics and freight services for Manufacturing, Automotive hubs, FMCG, Construction, and Engineering industries across Gurugram, Delhi NCR, Ghaziabad, and Haryana. Call +91 76781 76144.",
+    "Tailored logistics and freight services for Manufacturing, Automotive hubs, Textiles, FMCG, and Heavy Engineering across Delhi NCR, Haryana (Manesar, Panipat), and Punjab (Ludhiana). Call +91 76781 76144.",
   keywords: [
     "industrial transport Delhi NCR",
     "manufacturing logistics Gurugram",
     "automobile parts transport Manesar",
+    "textile truck transport Ludhiana Panipat",
     "FMCG road freight Haryana",
-    "construction material transport Ghaziabad",
+    "construction material transport Delhi",
     "Neelkanth Transport industries",
   ],
   alternates: {
-    canonical: "https://www.neelkanthtransport.com/industries",
+    canonical: `${siteConfig.siteUrl}/industries`,
   },
   openGraph: {
-    title: "Industries Served | Neelkanth Transport Services Delhi NCR",
+    title: "Industries Served in Delhi NCR, Haryana & Punjab | Neelkanth Transport",
     description:
-      "Reliable freight solutions for automotive, industrial machinery, manufacturing, and retail goods across Delhi NCR, Haryana and pan-India.",
-    url: "https://www.neelkanthtransport.com/industries",
+      "Reliable freight solutions for automotive, industrial machinery, manufacturing, textiles, and retail goods across Delhi NCR, Haryana, Punjab and pan-India.",
+    url: `${siteConfig.siteUrl}/industries`,
     images: [
       {
         url: "/assets/industries/manufacturing.jpg",
